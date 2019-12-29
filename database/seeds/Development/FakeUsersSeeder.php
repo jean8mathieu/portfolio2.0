@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
-class UsersSeeder extends Seeder
+class FakeUsersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,9 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 5)->create();
+        factory(User::class)->create([
+            'username' => "Developer",
+            'email' => 'developer@test.test'
+        ]);
     }
 }

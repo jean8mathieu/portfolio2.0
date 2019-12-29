@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\Project;
 
-class ProjectsSeeder extends Seeder
+class FakeProjectsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,8 @@ class ProjectsSeeder extends Seeder
      */
     public function run()
     {
-        factory(Project::class, 10)->create();
+        factory(Project::class, 10)
+            ->state('withRecords')
+            ->create();
     }
 }

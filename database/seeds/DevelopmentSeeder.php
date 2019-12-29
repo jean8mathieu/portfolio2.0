@@ -13,8 +13,8 @@ class DevelopmentSeeder extends Seeder
     public function run()
     {
         Artisan::call('migrate:refresh');
-        $this->call(UsersSeeder::class);
+        $this->call(FakeUsersSeeder::class);
         $this->call(TagsSeeder::class);
-        $this->call(ProjectsSeeder::class);
+        $this->call(FakeProjectsSeeder::class);
     }
 }

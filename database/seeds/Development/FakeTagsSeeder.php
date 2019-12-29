@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\Tag;
 
-class TagsSeeder extends Seeder
+class FakeTagsSeeder extends Seeder
 {
     /**
      * Run the database seeds.

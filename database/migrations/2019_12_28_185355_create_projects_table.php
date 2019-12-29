@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->string('summary');
             $table->text('description');
+            $table->text('markdown_description');
             $table->string('cover');
             $table->string('url');
             $table->string('repo_url');

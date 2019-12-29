@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Project extends Model
 {
+    use SoftDeletes;
+
     /**
      * Table name
      *
@@ -23,6 +26,7 @@ class Project extends Model
         'title',
         'summary',
         'description',
+        'markdown_description',
         'cover',
         'url',
         'repo_url'
@@ -36,5 +40,15 @@ class Project extends Model
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    /**
+     * Get the tags object
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

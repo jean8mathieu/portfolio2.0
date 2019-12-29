@@ -9,26 +9,32 @@
 <div class="col-md-4">
     <h3>{{ $project->title }}</h3>
 
-    {{ $project->description }}
+    {!! $project->markdown_description !!}
+
 
     <div class="mt-3 row">
         @if($project->url)
         <div class="col-md-6">
-            <a href="{{ $project->url }}" class="btn btn-primary w-100" target="_blank">View Project</a>
+            <a href="{{ $project->url }}" class="btn btn-primary w-100" target="_blank" title="View Project">
+                <i class="fas fa-paperclip"></i>
+            </a>
         </div>
         @endif
 
         @if($project->repo_url)
             <div class="col-md-6">
-                <a href="{{ $project->repo_url }}" class="btn btn-primary w-100" target="_blank">View Source Code</a>
+                <a href="{{ $project->repo_url }}" class="btn btn-primary w-100" target="_blank" title="View Source Code">
+                    <i class="fas fa-code"></i>
+                </a>
             </div>
         @endif
     </div>
 
 
     @if($project->tags && sizeof($project->tags) > 0)
+        <hr>
         @foreach($project->tags as $tag)
-            <span class="badge badge-primary">{{ $tag->name }}</span>
+            <a href="{{ route('home.tag', [$tag]) }}" class="badge badge-{{ $tag->type }}" style="font-size: 14px">{{ $tag->name }}</a>
         @endforeach
     @endif
 </div>

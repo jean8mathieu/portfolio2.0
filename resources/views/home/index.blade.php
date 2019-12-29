@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Projects</h1>
+        <h1>Projects <small>{{ isset($tag) ? "({$tag->name})" : "" }}</small></h1>
 
         @if(isset($projectsSlider) && sizeof($projectsSlider) > 0)
             <div id="carouselProjects" class="carousel slide" data-ride="carousel">
@@ -58,5 +58,7 @@
                 </div>
             </div>
         @endforelse
+
+        {!! $projects->render() !!}
     </div>
 @endsection
