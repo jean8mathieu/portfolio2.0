@@ -22,7 +22,7 @@ class HomeController extends Controller
             ->limit('5')
             ->get();
 
-        $projects = Project::with(['user'])
+        $projects = Project::query()
             ->orderBy('created_at', 'desc')
             ->paginate();
 
@@ -58,14 +58,12 @@ class HomeController extends Controller
     public function tag(Tag $tag)
     {
         $projectsSlider = $tag->projects()
-            ->with(['user'])
             ->whereNotNull('cover')
             ->orderBy('created_at', 'desc')
             ->limit('5')
             ->get();
 
         $projects = $tag->projects()
-            ->with(['user'])
             ->orderBy('created_at', 'desc')
             ->paginate();
 

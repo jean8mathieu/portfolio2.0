@@ -17,6 +17,7 @@ class CreateTagsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('type');
+            $table->integer('user_id');
             $table->timestamps();
             $table->softDeletes();
         });

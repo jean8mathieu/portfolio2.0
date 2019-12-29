@@ -17,6 +17,13 @@ class Project extends Model
     protected $table = 'projects';
 
     /**
+     * Relationship
+     *
+     * @var array
+     */
+    protected $with = ['tags', 'user'];
+
+    /**
      * Fillable values
      *
      * @var array

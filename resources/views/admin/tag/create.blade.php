@@ -1,7 +1,5 @@
 @extends('layouts.admin')
-@section('title')
-    Admin - Project - Edit - {{ $project->title }}
-@endsection
+@section('title', 'Admin - Tag - Create')
 
 @section('content')
     <div class="container">

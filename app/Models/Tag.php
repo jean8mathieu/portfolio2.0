@@ -35,13 +35,21 @@ class Tag extends Model
     protected $table = 'tags';
 
     /**
+     * Relationship
+     *
+     * @var array
+     */
+    protected $with = ['user'];
+
+    /**
      * Fillable value
      *
      * @var array
      */
     protected $fillable = [
         'name',
-        'type'
+        'type',
+        'user_id'
     ];
 
     /**
@@ -52,5 +60,15 @@ class Tag extends Model
     public function projects()
     {
         return $this->belongsToMany(Project::class);
+    }
+
+    /**
+     * Get the user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 }

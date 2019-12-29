@@ -9,10 +9,9 @@ use Faker\Generator as Faker;
 use GrahamCampbell\Markdown\Facades\Markdown;
 
 $factory->define(Project::class, function (Faker $faker) {
-    $user = factory(User::class)->create();
+    $user = User::query()->first();
 
     $description = $faker->realText(200);
-
 
     return [
         'user_id' => $user->id,

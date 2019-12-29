@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Tag;
+use App\Models\User;
 
 class TagsSeeder extends Seeder
 {
@@ -35,10 +36,13 @@ class TagsSeeder extends Seeder
             'MongoDB' => Tag::TYPE_DATABASE
         ];
 
+        $user = User::query()->first();
+
         foreach($types as $key => $value) {
             Tag::create([
                 'name' => $key,
-                'type' => $value
+                'type' => $value,
+                'user_id' => $user->id
             ]);
         }
     }
