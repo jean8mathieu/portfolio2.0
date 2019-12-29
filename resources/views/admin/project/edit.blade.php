@@ -13,5 +13,29 @@
                 "Edit - {$project->title}" => route('admin.project.edit', [$project])
             ]
         ])
+
+        <form action="{{ route('api.admin.project.update', [$project]) }}" method="POST">
+            <label for="title">Title</label>
+            <input id="title" type="text" name="title" class="form-control" value="{{ $project->title }}">
+
+            <label for="summary">Summary</label>
+            <textarea id="summary" class="form-control" name="summary">{{ $project->summary }}</textarea>
+
+            <label for="description">Description</label>
+            <textarea id="description" class="form-control" name="description">{{ $project->description }}</textarea>
+
+            <label for="cover">Cover Picture</label>
+            <input id="cover" type="file" name="cover" class="form-control">
+
+            <label for="url">Website</label>
+            <input id="url" type="url" name="url" class="form-control" value="{{ $project->url }}">
+
+            <label for="repository">Repository</label>
+            <input id="repository" type="url" name="repo_url" class="form-control" value="{{ $project->repo_url }}">
+
+            <button type="button" class="btn btn-success btn-submit click mt-3">
+                Update
+            </button>
+        </form>
     </div>
 @endsection

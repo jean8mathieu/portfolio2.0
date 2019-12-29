@@ -7,7 +7,7 @@
     <div class="container">
         <h1>Tags
             <span class="float-right">
-                <a href="#" class="btn btn-success" title="Create a new tag">
+                <a href="{{ route('admin.tag.create') }}" class="btn btn-success" title="Create a new tag">
                     <i class="fas fa-plus"></i>
                 </a>
             </span>
@@ -36,12 +36,12 @@
                     <td>{{ $tag->created_at }}</td>
                     <td>{{ $tag->updated_at }}</td>
                     <td>
-                        <a href="#" class="btn btn-primary" title="Edit tag">
+                        <a href="{{ route('admin.tag.edit', [$tag]) }}" class="btn btn-primary" title="Edit tag">
                             <i class="far fa-edit"></i>
                         </a>
                     </td>
                     <td>
-                        <a href="#" class="btn btn-danger" title="Delete tag">
+                        <a href="{{ route('api.admin.tag.destroy', [$tag]) }}" class="btn btn-danger" title="Delete tag">
                             <i class="far fa-trash-alt"></i>
                         </a>
                     </td>

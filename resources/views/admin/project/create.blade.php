@@ -11,5 +11,29 @@
                 'Create' => route('admin.project.create')
             ]
         ])
+
+        <form action="{{ route('api.admin.project.store') }}" method="POST">
+            <label for="title">Title</label>
+            <input id="title" type="text" name="title" class="form-control">
+
+            <label for="summary">Summary</label>
+            <textarea id="summary" class="form-control" name="summary"></textarea>
+
+            <label for="description">Description</label>
+            <textarea id="description" class="form-control" name="description"></textarea>
+
+            <label for="cover">Cover Picture</label>
+            <input id="cover" type="file" name="cover" class="form-control">
+
+            <label for="url">Website</label>
+            <input id="url" type="url" name="url" class="form-control">
+
+            <label for="repository">Repository</label>
+            <input id="repository" type="url" name="repository" class="form-control">
+
+            <button type="button" class="btn btn-success btn-submit click mt-3">
+                Submit
+            </button>
+        </form>
     </div>
 @endsection

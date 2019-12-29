@@ -44,7 +44,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="{{ route('admin.project.destroy', [$project]) }}" class="btn btn-danger" title="Delete project">
+                        <a href="{{ route('api.admin.project.destroy', [$project]) }}" class="btn btn-danger" title="Delete project">
                             <i class="far fa-trash-alt"></i>
                         </a>
                     </td>

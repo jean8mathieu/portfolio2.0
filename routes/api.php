@@ -12,7 +12,8 @@
 */
 
 Route::group([
-    'namespace' => 'API'
+    'namespace' => 'API',
+    'as' => 'api.'
 ], function () {
     Route::group([
         'middleware' => ['auth'],
@@ -20,6 +21,6 @@ Route::group([
         'as' => 'admin.',
     ], function () {
         Route::resource('project', 'ProjectController')->only(['store', 'update', 'destroy']);
-        Route::resource('project', 'TagController')->only(['store', 'update', 'destroy']);
+        Route::resource('tag', 'TagController')->only(['store', 'update', 'destroy']);
     });
 });
