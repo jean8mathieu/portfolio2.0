@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Tag;
 
+use App\Models\Tag;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
 {
@@ -23,8 +25,21 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->route('tag');
+
         return [
-            //
+            'name' => [
+                "required",
+                "min:2",
+                "max:10",
+                Rule::unique('tags', 'name')
+                    ->ignore($id)
+                    ->whereNull('deleted_at')
+            ],
+            'type' => [
+                "required",
+                Rule::in(Tag::$typesKeys)
+            ]
         ];
     }
 }

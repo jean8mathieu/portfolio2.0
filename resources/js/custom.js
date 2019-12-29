@@ -30,3 +30,11 @@ $(document).on('click', '.click', function () {
         btn.html(content);
     }, 2000);
 });
+
+/**
+ *
+ */
+$('.tag').tokenize2({
+    dataSource: '/api/admin/tag',
+    delimiter: ','
+});

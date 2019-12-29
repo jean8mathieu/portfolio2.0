@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Tag;
 
+use App\Models\Tag;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreRequest extends FormRequest
 {
@@ -24,7 +26,17 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => [
+                "required",
+                "min:2",
+                "max:10",
+                Rule::unique('tags', 'name')
+                    ->whereNull('deleted_at')
+            ],
+            'type' => [
+                "required",
+                Rule::in(Tag::$typesKeys)
+            ]
         ];
     }
 }

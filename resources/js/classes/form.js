@@ -5,12 +5,14 @@ class Form {
      * @param id value of the form id
      */
     constructor(id) {
-        this._id = this.incrementId();
+        let self = this;
+        self._id = self.incrementId();
 
-        this.form = $(`#${id}`);
-        this.formData = new FormData(this.form[0]);
-        this.formData.append("_method", this.form.attr("method"));
-        this.formId = id;
+        self.form = $(`#${id}`);
+        self.formData = new FormData(self.form[0]);
+        self.formData.append("_method", self.form.attr("method"));
+        self.formData.append("_token", $('meta[name="csrf-token"]').attr('content'));
+        self.formId = id;
     }
 
     incrementId() {
@@ -35,20 +37,19 @@ class Form {
             url: self.form.attr('action'),
             data: self.formData,
             async: true,
+            cache: false,
             processData: false,
             contentType: false,
             success: function (data) {
-                if (data.error === false) {
-                    Notification.toastMessage("Success", data.message, 'success', 2000);
-                    if (redirect) {
-                        setTimeout(function () {
-                            window.location.href = data.redirect;
-                        }, 2000);
-                    }
-                    return true;
+                Notification.message("Success", data.message, 'success', 2000);
+                if (redirect) {
+                    setTimeout(function () {
+                        //window.location.href = data.redirect;
+                    }, 2000);
                 }
+                return true;
             }, error: function (data) {
-                Notification.toastMessage("Error", Notification.errorMessage(data), 'danger', 5000);
+                Notification.message("Error", self.errorMessage(data), 'danger', 5000);
                 return false;
             }
         });

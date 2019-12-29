@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Project;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
 
 class StoreRequest extends FormRequest
 {
@@ -23,8 +25,19 @@ class StoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        $rules =  [
+            'title' => "required|min:5|max:255",
+            'summary' => "required|min:5|max:255",
+            'description' => "required|min:50|max:1000",
+            'cover' => "nullable|image",
+            'url' => "nullable|url",
+            'repo_url' => "nullable|url"
         ];
+
+        foreach ($this->request->get('tag') ?? [] as $key => $val) {
+            $rules["tag.{$key}"] = Rule::exists('tags', 'id')->where('id', $val);
+        }
+
+        return $rules;
     }
 }

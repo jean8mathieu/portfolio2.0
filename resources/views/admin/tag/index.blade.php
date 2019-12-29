@@ -23,7 +23,6 @@
                 <th scope="col">Created At</th>
                 <th scope="col">Updated At</th>
                 <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -40,12 +39,6 @@
                             <i class="far fa-edit"></i>
                         </a>
                     </td>
-                    <td>
-                        <a href="{{ route('api.admin.tag.destroy', [$tag]) }}" class="btn btn-danger" title="Delete tag">
-                            <i class="far fa-trash-alt"></i>
-                        </a>
-                    </td>
-
                 </tr>
             @empty
                 <tr>

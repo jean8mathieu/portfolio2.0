@@ -12,7 +12,7 @@
             ]
         ])
 
-        <form action="{{ route('api.admin.project.store') }}" method="POST">
+        <form action="{{ route('api.admin.project.store') }}" id="form" method="POST" enctype="multipart/form-data">
             <label for="title">Title</label>
             <input id="title" type="text" name="title" class="form-control">
 
@@ -21,6 +21,9 @@
 
             <label for="description">Description</label>
             <textarea id="description" class="form-control" name="description"></textarea>
+
+            <label for="tag">Tag</label>
+            <select id="tag" name="tag[]" class="tag custom-select" multiple></select>
 
             <label for="cover">Cover Picture</label>
             <input id="cover" type="file" name="cover" class="form-control">

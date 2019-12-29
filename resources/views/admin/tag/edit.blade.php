@@ -14,12 +14,12 @@
             ]
         ])
 
-        <form action="{{ route('api.admin.tag.update', [$tag]) }}" method="POST">
+        <form action="{{ route('api.admin.tag.update', [$tag]) }}" id="form" method="PUT">
             <label for="name">Name</label>
             <input id="name" type="text" name="name" class="form-control" value="{{ $tag->name }}">
 
             <label for="type">Type</label>
-            <select id="type" class="form-control">
+            <select id="type" name="type" class="form-control">
                 <option></option>
                 @foreach(\App\Models\Tag::$types as $key => $value)
                     <option value="{{ $key }}" {{ $key === $tag->type ? "selected" : "" }}>

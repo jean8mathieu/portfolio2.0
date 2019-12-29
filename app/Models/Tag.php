@@ -28,6 +28,17 @@ class Tag extends Model
     ];
 
     /**
+     * Valid type
+     *
+     * @var array
+     */
+    public static $typesKeys = [
+        self::TYPE_BACKEND,
+        self::TYPE_FRONTEND,
+        self::TYPE_DATABASE
+    ];
+
+    /**
      * Table name
      *
      * @var string

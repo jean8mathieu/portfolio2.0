@@ -14,7 +14,7 @@
             ]
         ])
 
-        <form action="{{ route('api.admin.project.update', [$project]) }}" method="POST">
+        <form action="{{ route('api.admin.project.update', [$project]) }}" id="form" method="PUT" enctype="multipart/form-data">
             <label for="title">Title</label>
             <input id="title" type="text" name="title" class="form-control" value="{{ $project->title }}">
 
@@ -23,6 +23,9 @@
 
             <label for="description">Description</label>
             <textarea id="description" class="form-control" name="description">{{ $project->description }}</textarea>
+
+            <label for="tag">Tag</label>
+            <select id="tag" name="tag[]" class="tag custom-select" multiple></select>
 
             <label for="cover">Cover Picture</label>
             <input id="cover" type="file" name="cover" class="form-control">
@@ -38,4 +41,14 @@
             </button>
         </form>
     </div>
+@endsection
+
+@section('js')
+    <script type="text/javascript">
+        @if(!empty($project))
+            @foreach($project->tags as $tag)
+                $('#tag').tokenize2().trigger('tokenize:tokens:add', ['{{ $tag->id }}', '{{ $tag->name }}', true]);
+            @endforeach
+        @endif
+    </script>
 @endsection

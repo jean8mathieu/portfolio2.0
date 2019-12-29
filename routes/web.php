@@ -27,9 +27,26 @@ Route::group([
 Route::group([
     'as' => 'admin.',
     'prefix' => 'admin',
-    'namespace' => 'Admin'
+    'namespace' => 'Admin',
+    'middleware' => ['auth']
 ], function() {
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::resource('project', 'ProjectController')->only(['create', 'edit']);
     Route::resource('tag', 'TagController')->only(['index', 'create', 'edit']);
+});
+
+
+Route::group([
+    'prefix' => 'api',
+    'namespace' => 'API',
+    'as' => 'api.',
+], function () {
+    Route::group([
+        'prefix' => 'admin',
+        'as' => 'admin.',
+        'middleware' => ['auth'],
+    ], function () {
+        Route::resource('project', 'ProjectController')->only(['store', 'update', 'destroy']);
+        Route::resource('tag', 'TagController')->only(['index', 'store', 'update', 'destroy']);
+    });
 });
