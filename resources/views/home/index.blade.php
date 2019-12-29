@@ -59,6 +59,10 @@
             </div>
         @endforelse
 
-        {!! $projects->render() !!}
+        <hr>
+
+        <div class="row justify-content-center">
+            {!! $projects->render() !!}
+        </div>
     </div>
 @endsection

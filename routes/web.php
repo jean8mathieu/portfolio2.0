@@ -30,4 +30,6 @@ Route::group([
     'namespace' => 'Admin'
 ], function() {
     Route::get('/', 'HomeController@index')->name('home.index');
+    Route::resource('project', 'ProjectController')->only(['create', 'edit']);
+    Route::resource('tag', 'TagController')->only(['index', 'create', 'edit']);
 });
