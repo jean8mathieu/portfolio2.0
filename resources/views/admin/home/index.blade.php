@@ -3,9 +3,16 @@
 
 @section('content')
     <div class="container">
+        @include('shared.breadcrumb', [
+            'breadcrumb' => [
+                'Home' => route('home.index'),
+                'Admin' => route('admin.home.index')
+            ]
+        ])
+
         <h1>Projects
             <span class="float-right">
-                <a href="#" class="btn btn-success" title="Create a new project">
+                <a href="{{ route('admin.project.create') }}" class="btn btn-success" title="Create a new project">
                     <i class="fas fa-plus"></i>
                 </a>
             </span>
@@ -25,24 +32,24 @@
             </thead>
             <tbody>
             @forelse($projects as $project)
-            <tr>
-                <th scope="row">{{ $project->id }}</th>
-                <td>{{ $project->title }}</td>
-                <td>{{ $project->user->username }}</td>
-                <td>{{ $project->created_at }}</td>
-                <td>{{ $project->updated_at }}</td>
-                <td>
-                    <a href="#" class="btn btn-primary" title="Edit project">
-                        <i class="far fa-edit"></i>
-                    </a>
-                </td>
-                <td>
-                    <a href="#" class="btn btn-danger" title="Delete project">
-                        <i class="far fa-trash-alt"></i>
-                    </a>
-                </td>
+                <tr>
+                    <th scope="row">{{ $project->id }}</th>
+                    <td>{{ $project->title }}</td>
+                    <td>{{ $project->user->username }}</td>
+                    <td>{{ $project->created_at }}</td>
+                    <td>{{ $project->updated_at }}</td>
+                    <td>
+                        <a href="{{ route('admin.project.edit', [$project]) }}" class="btn btn-primary" title="Edit project">
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ route('admin.project.destroy', [$project]) }}" class="btn btn-danger" title="Delete project">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </td>
 
-            </tr>
+                </tr>
             @empty
                 <tr>
                     <td colspan="100" class="table-danger">There's currently no project</td>
@@ -57,4 +64,8 @@
             {!! $projects->render() !!}
         </div>
     </div>
+@endsection
+
+@section('js')
+
 @endsection

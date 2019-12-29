@@ -21,6 +21,7 @@
 </head>
 <body>
 <div id="app">
+    @include('shared.message')
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home.index') }}">
@@ -81,7 +82,9 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ mix('js/app.js') }}" defer></script>
+<script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ mix('js/app-admin.js') }}"></script>
+
 @yield('js')
 </body>
 </html>

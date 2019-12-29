@@ -3,6 +3,12 @@
 
 @section('content')
     <div class="container">
+        @include('shared.breadcrumb', [
+            'breadcrumb' => [
+                'Home' => route('home.index'),
+                'About' => route('home.about')
+            ]
+        ])
         <div class="row">
             <div class="col-md-12">
                 <p>My name is Jean-Mathieu and I'm from an upper middle class family and bilingual (French & English).
