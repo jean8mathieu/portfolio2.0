@@ -9,6 +9,12 @@
 <div class="col-md-4">
     <h3>{{ $project->title }}</h3>
 
+    @if($project->tags && sizeof($project->tags) > 0)
+        @foreach($project->tags as $tag)
+            {!! $tag->getButton() !!}
+        @endforeach
+    @endif
+
     {!! $project->markdown_description !!}
 
 
@@ -38,12 +44,4 @@
             </div>
         @endif
     </div>
-
-
-    @if($project->tags && sizeof($project->tags) > 0)
-        <hr>
-        @foreach($project->tags as $tag)
-            {!! $tag->getButton() !!}
-        @endforeach
-    @endif
 </div>

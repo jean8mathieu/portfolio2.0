@@ -25,8 +25,8 @@ First, download the project using Git:
 `git clone git@github.com:jean8mathieu/portfolio2.0.git`
 
 You'll need to run the following commands:
-* `php artisan key:generate`
 * `composer install`
+* `php artisan key:generate`
 * `npm install` (Linux & Mac) or `npm install --no-bin-links` (Windows)
 * `php artisan migrate`
 
