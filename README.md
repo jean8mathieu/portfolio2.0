@@ -31,12 +31,11 @@ You'll need to run the following commands:
 * `php artisan migrate`
 
 ## Configuration
-There's 2 choices, if you would like to insert dummy data you can run the following command:
-`php artisan db:seed --class=DevelopmentSeeder`
+There's 2 choices, if you would like to insert dummy data you can run the following command:  
+`php artisan db:seed --class=DevelopmentSeeder` (Will create user, projects and tags)
 
-The other choice is if you want to use this on a production server:
-`php artisan db:seed --class=DatabaseSeeder`. It will insert the usual programming languages
-
+The other choice is if you want to use this on a production server: 
+`php artisan db:seed --class=DatabaseSeeder` (Will insert usual programming languages used)
 
 ## Tests
 At this moment there's no PHPUnit test done. But when there will, instruction will be added.
