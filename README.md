@@ -44,6 +44,7 @@ If you do not fill up those, the contact form will return an error.
 There's 2 choices, if you would like to insert dummy data you can run the following command:  
 `php artisan db:seed --class=DevelopmentSeeder` (Will create user, projects and tags)
 
+**If you run the command bellow make sure you create a user first.**  
 The other choice is if you want to use this on a production server:   
 `php artisan db:seed --class=DatabaseSeeder` (Will insert usual programming languages used)
 
