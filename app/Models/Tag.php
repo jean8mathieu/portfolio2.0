@@ -37,7 +37,8 @@ class Tag extends Model
     public static $typesKeys = [
         self::TYPE_BACKEND,
         self::TYPE_FRONTEND,
-        self::TYPE_DATABASE
+        self::TYPE_DATABASE,
+        self::TYPE_OTHER
     ];
 
     /**
