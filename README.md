@@ -34,7 +34,7 @@ You'll need to run the following commands:
 There's 2 choices, if you would like to insert dummy data you can run the following command:  
 `php artisan db:seed --class=DevelopmentSeeder` (Will create user, projects and tags)
 
-The other choice is if you want to use this on a production server: 
+The other choice is if you want to use this on a production server:   
 `php artisan db:seed --class=DatabaseSeeder` (Will insert usual programming languages used)
 
 ## Tests
