@@ -3,11 +3,11 @@
 Portfolio 2.0 is a portfolio I build for my self to showcase the project I've worked on. You're free to use it as long 
 as you keep the credit.
 
-* [Requirements]()
-* [Installation]()
-* [Configuration]()
-* [Tests]()
-* [Contributors]()
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Configuration](#configuration)
+* [Tests](#tests)
+* [Contributors](#contributors)
 
 ## Requirements
 * PHP >= 7.2.0
