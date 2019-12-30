@@ -29,7 +29,7 @@ class StoreRequest extends FormRequest
             'name' => [
                 "required",
                 "min:2",
-                "max:10",
+                "max:25",
                 Rule::unique('tags', 'name')
                     ->whereNull('deleted_at')
             ],

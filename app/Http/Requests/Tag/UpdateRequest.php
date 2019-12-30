@@ -31,7 +31,7 @@ class UpdateRequest extends FormRequest
             'name' => [
                 "required",
                 "min:2",
-                "max:10",
+                "max:25",
                 Rule::unique('tags', 'name')
                     ->ignore($id)
                     ->whereNull('deleted_at')
