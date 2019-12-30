@@ -44,7 +44,7 @@ class Form {
                 Notification.message("Success", data.message, 'success', 2000);
                 if (redirect) {
                     setTimeout(function () {
-                        //window.location.href = data.redirect;
+                        window.location.href = data.redirect;
                     }, 2000);
                 }
                 return true;

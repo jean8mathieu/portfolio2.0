@@ -50,4 +50,10 @@ $('.close').on('click', function () {
     $(this).closest('.toast').remove();
 });
 
+$('.btn-tag-delete').on('click', function() {
+    formAjax('form-delete', true);
+});
 
+$('.btn-project-delete').on('click', function() {
+    formAjax('form-delete', true);
+});

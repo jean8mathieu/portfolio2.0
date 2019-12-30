@@ -32,5 +32,12 @@
                 Update
             </button>
         </form>
+
+        <hr>
+
+        <form id="form-delete" action="{{ route('api.admin.tag.destroy', [$tag]) }}" method="DELETE">
+            @csrf
+            <button type="button" class="btn btn-danger btn-tag-delete">Delete</button>
+        </form>
     </div>
 @endsection

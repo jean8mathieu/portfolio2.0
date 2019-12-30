@@ -77,6 +77,7 @@
     </nav>
 
     <main class="py-4">
+        @include('shared.message')
         @yield('content')
     </main>
 </div>

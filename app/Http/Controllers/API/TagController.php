@@ -7,6 +7,7 @@ use App\Http\Requests\Tag\StoreRequest;
 use App\Http\Requests\Tag\UpdateRequest;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TagController extends Controller
 {
@@ -53,7 +54,8 @@ class TagController extends Controller
     {
         if (Tag::create([
             'name' => $request->name,
-            'type' => $request->type
+            'type' => $request->type,
+            'user_id' => Auth::id()
         ])) {
             return response([
                 'message' => "The tag have been created successfully!",
@@ -77,7 +79,8 @@ class TagController extends Controller
     {
         if ($tag->update([
             'name' => $request->name,
-            'type' => $request->type
+            'type' => $request->type,
+            'user_id' => Auth::id()
         ])) {
             return response([
                 'message' => "The tag have been updated successfully!",

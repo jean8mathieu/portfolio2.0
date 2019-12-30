@@ -40,6 +40,13 @@
                 Update
             </button>
         </form>
+
+        <hr>
+
+        <form id="form-delete" action="{{ route('api.admin.project.destroy', [$project]) }}" method="DELETE">
+            @csrf
+            <button type="button" class="btn btn-danger btn-project-delete">Delete</button>
+        </form>
     </div>
 @endsection
 
