@@ -15,6 +15,7 @@ class Tag extends Model
     const TYPE_BACKEND = 'primary';
     const TYPE_FRONTEND = 'success';
     const TYPE_DATABASE = 'warning';
+    const TYPE_OTHER = 'info';
 
     /**
      * Type options
@@ -24,7 +25,8 @@ class Tag extends Model
     public static $types = [
         self::TYPE_BACKEND => "Back-End",
         self::TYPE_FRONTEND => "Front-End",
-        self::TYPE_DATABASE => "Database"
+        self::TYPE_DATABASE => "Database",
+        self::TYPE_OTHER => "Other"
     ];
 
     /**
