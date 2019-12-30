@@ -47,6 +47,12 @@ There's 2 choices, if you would like to insert dummy data you can run the follow
 The other choice is if you want to use this on a production server:   
 `php artisan db:seed --class=DatabaseSeeder` (Will insert usual programming languages used)
 
+To create a user:  
+`php artisan jmdev:create-user`
+
+To update a user password:  
+`php artisan jmdev:update-user`
+
 ## Tests
 At this moment there's no PHPUnit test done. But when there will, instruction will be added.
 
