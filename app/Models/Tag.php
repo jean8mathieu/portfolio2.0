@@ -82,4 +82,21 @@ class Tag extends Model
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
+
+    /**
+     * Generate the button for tag
+     *
+     * @return string
+     */
+    public function getButton()
+    {
+        $route = route('home.tag', [$this]);
+        $types = Tag::$types;
+        return "<a href='{$route}'
+                class='badge badge-{$this->type} fs-14'
+                data-toggle='tooltip'
+                title='{$types[$this->type]}'>
+                {$this->name}
+            </a>";
+    }
 }

@@ -22,6 +22,7 @@ Route::group([
     Route::get('tag/{tag}', 'HomeController@tag')->name('tag');
     Route::get('about', 'HomeController@about')->name('about');
     Route::get('contact', 'HomeController@contact')->name('contact');
+    Route::post('contact', 'HomeController@postContact')->name('postContact');
 });
 
 Route::group([

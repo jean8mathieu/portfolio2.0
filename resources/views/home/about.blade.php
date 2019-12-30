@@ -11,23 +11,7 @@
         ])
         <div class="row">
             <div class="col-md-12">
-                <p>My name is Jean-Mathieu and I'm from an upper middle class family and bilingual (French & English).
-                    Since 2014, I have been working on multiple projects
-                    that people always been enjoying to use. I always try to make my code as efficient as possile and
-                    bug free. My expertise
-                    is working on the backend code of website. I have also wrote some autonomous script that could play
-                    a game for me using Java.
-                </p>
-
-                <p>My technical expertise include cross-platform proficiency (Windows, Linux and Mac). The languages
-                    that I'm the most fluent in
-                    are PHP, HTML, CSS, Javascript, JQuery, Ajax, MySQL, Oracle SQL and Java. I have developed multiple
-                    application using
-                    the MVC model and I have also use CakePHP as one of my framework for Web Development.</p>
-
-                <p>I'm always looking to learn new things that could help me to be more efficient in the making of
-                    certain application. I enjoy coding
-                    and I have participated to multiple hackathon</p>
+                {!! $aboutme  !!}
 
                 <h1>Coding Competition</h1>
                 <hr>

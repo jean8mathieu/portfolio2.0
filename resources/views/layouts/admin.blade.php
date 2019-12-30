@@ -83,7 +83,7 @@
 
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
-<script src="{{ mix('js/app-admin.js') }}"></script>
+<script src="{{ mix('js/app-public.js') }}"></script>
 
 @yield('js')
 </body>

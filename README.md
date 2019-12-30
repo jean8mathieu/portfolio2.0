@@ -30,6 +30,16 @@ You'll need to run the following commands:
 * `npm install` (Linux & Mac) or `npm install --no-bin-links` (Windows)
 * `php artisan migrate`
 
+You'll need to setup the following key in the **.env**:
+[reCAPTCHA v3](https://developers.google.com/recaptcha/docs/v3)
+- `RE_CAPTCHA_SITE_KEY`
+- `RE_CAPTCHA_SECRET_KEY`
+
+[Slack Incoming Webhooks](https://api.slack.com/apps?new_app=1)
+- `SLACK_CONTACT_NOTIFICATION`
+
+If you do not fill up those, the contact form will return an error.
+
 ## Configuration
 There's 2 choices, if you would like to insert dummy data you can run the following command:  
 `php artisan db:seed --class=DevelopmentSeeder` (Will create user, projects and tags)

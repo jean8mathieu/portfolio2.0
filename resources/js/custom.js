@@ -44,4 +44,10 @@ $('.tag').tokenize2({
  */
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-})
+});
+
+$('.close').on('click', function () {
+    $(this).closest('.toast').remove();
+});
+
+

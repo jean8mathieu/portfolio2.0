@@ -43,14 +43,7 @@
     @if($project->tags && sizeof($project->tags) > 0)
         <hr>
         @foreach($project->tags as $tag)
-            <a
-                href="{{ route('home.tag', [$tag]) }}"
-                class="badge badge-{{ $tag->type }}"
-                style="font-size: 14px"
-                data-toggle="tooltip"
-                title="{{ \App\Models\Tag::$types[$tag->type] }}">
-                {{ $tag->name }}
-            </a>
+            {!! $tag->getButton() !!}
         @endforeach
     @endif
 </div>

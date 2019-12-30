@@ -82,13 +82,26 @@
         </nav>
 
         <main class="py-4">
+            @include('shared.message')
             @yield('content')
         </main>
+
+        <!-- Footer -->
+        <footer class="page-footer bg-white">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+                Copyright © <a href="https://jmdev.ca">JMDev</a> 2016 - 2019
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
     </div>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
-    <script src="{{ mix('js/app-public.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ mix('js/app-public.js') }}"></script>
     @yield('js')
 </body>
 </html>
