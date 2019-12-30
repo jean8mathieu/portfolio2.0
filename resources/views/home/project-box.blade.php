@@ -1,8 +1,8 @@
 <div class="col-md-8">
-    @if($project->cover)
-        <img src="{{ $project->cover }}" alt="" class="mw-100">
+    @if(!empty($project->cover))
+        <img src="{{ $project->cover }}" alt="" class="w-100">
     @else
-    <!-- Default picture -->
+        <img src="/storage/images/assets/notfound.jpg" alt="" class="w-100 cover">
     @endif
 
 </div>
