@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         $rules =  [
-            'title' => "required|min:5|max:255",
+            'title' => "required|min:4|max:255",
             'summary' => "required|min:5|max:255",
             'description' => "required|min:50|max:1000",
             'cover' => "nullable|image",
