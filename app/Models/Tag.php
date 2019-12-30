@@ -15,6 +15,7 @@ class Tag extends Model
     const TYPE_BACKEND = 'primary';
     const TYPE_FRONTEND = 'success';
     const TYPE_DATABASE = 'warning';
+    const TYPE_API = 'secondary';
     const TYPE_OTHER = 'info';
 
     /**
@@ -26,6 +27,7 @@ class Tag extends Model
         self::TYPE_BACKEND => "Back-End",
         self::TYPE_FRONTEND => "Front-End",
         self::TYPE_DATABASE => "Database",
+        self::TYPE_API => "API",
         self::TYPE_OTHER => "Other"
     ];
 
@@ -38,6 +40,7 @@ class Tag extends Model
         self::TYPE_BACKEND,
         self::TYPE_FRONTEND,
         self::TYPE_DATABASE,
+        self::TYPE_API,
         self::TYPE_OTHER
     ];
 
