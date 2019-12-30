@@ -21,7 +21,7 @@ class CreateProjectsTable extends Migration
             $table->text('description');
             $table->text('markdown_description');
             $table->string('cover')->nullable();
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('repo_url')->nullable();
             $table->timestamps();
             $table->softDeletes();
