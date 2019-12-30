@@ -1,6 +1,6 @@
 <div class="col-md-8">
     @if(!empty($project->cover))
-        <img src="{{ $project->cover }}" alt="" class="w-100">
+        <img src="{{ $project->cover }}" alt="" class="w-100 cover">
     @else
         <img src="/storage/images/assets/notfound.jpg" alt="" class="w-100 cover">
     @endif

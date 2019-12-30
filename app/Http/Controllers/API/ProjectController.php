@@ -37,7 +37,7 @@ class ProjectController extends Controller
             ], 500);
         }
 
-        if (!$data = $this->createMultipleTags($project, $request, 'tag', 'tags')) {
+        if (!$data = $this->updateMultipleTags($project, $request, 'tag', 'tags')) {
             return response($data, 500);
         }
 
@@ -137,33 +137,6 @@ class ProjectController extends Controller
             return true;
         }
         return null;
-    }
-
-    /**
-     * Create multiple tags
-     *
-     * @param $model
-     * @param $request
-     * @param $parameter
-     * @param $relationship
-     * @return array|bool
-     */
-    private function createMultipleTags($model, $request, $parameter, $relationship)
-    {
-        if ($request->{$parameter}) {
-            if (!is_array($request->{$parameter})) {
-                $request->{$parameter} = [$request->{$parameter}];
-            }
-            foreach ($request->{$parameter} as $tag) {
-                if (!$model->{$relationship}()->attach([$tag])) {
-                    return [
-                        'error' => true,
-                        'message' => "Couldn't create a tag using the following relationship: {$relationship}"
-                    ];
-                }
-            }
-        }
-        return true;
     }
 
     /**
