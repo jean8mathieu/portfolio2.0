@@ -31,7 +31,7 @@ class StoreRequest extends FormRequest
             'description' => "required|min:50|max:1000",
             'cover' => "nullable|image",
             'url' => "nullable|url",
-            'repo_url' => "nullable|url"
+            'repository' => "nullable|url"
         ];
 
         foreach ($this->request->get('tag') ?? [] as $key => $val) {

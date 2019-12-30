@@ -34,7 +34,7 @@
             <input id="url" type="url" name="url" class="form-control" value="{{ $project->url }}">
 
             <label for="repository">Repository</label>
-            <input id="repository" type="url" name="repo_url" class="form-control" value="{{ $project->repo_url }}">
+            <input id="repository" type="url" name="repository" class="form-control" value="{{ $project->repo_url }}">
 
             <button type="button" class="btn btn-success btn-submit click mt-3">
                 Update
