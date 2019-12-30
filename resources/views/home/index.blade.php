@@ -17,7 +17,7 @@
 
                     @foreach($projectsSlider as $project)
                         <div class="carousel-item {{ $loop->index === 0 ? "active" : "" }}">
-                            <img src="{{ $project->cover }}" class="w-100" alt="...">
+                            <img src="{{ $project->cover }}" class="w-100 cover-slider" alt="Project's image">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>{{ $project->title }}</h5>
                                 <p>{{ $project->summary }}</p>
