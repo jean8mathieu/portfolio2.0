@@ -27,7 +27,7 @@ First, download the project using Git:
 You'll need to run the following commands:
 * `php artisan key:generate`
 * `composer install`
-* `npm install`
+* `npm install` (Linux & Mac) or `npm install --no-bin-links` (Windows)
 * `php artisan migrate`
 
 ## Configuration
