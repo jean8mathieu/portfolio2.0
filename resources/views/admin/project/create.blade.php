@@ -20,7 +20,7 @@
             <textarea id="summary" class="form-control" name="summary"></textarea>
 
             <label for="description">Description</label>
-            <textarea id="description" class="form-control" name="description"></textarea>
+            <textarea id="description" class="form-control" name="description" rows="10"></textarea>
 
             <label for="tag">Tag</label>
             <select id="tag" name="tag[]" class="tag custom-select" multiple></select>
