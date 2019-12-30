@@ -118,7 +118,7 @@ class HomeController extends Controller
 
         return redirect()
             ->route('home.index')
-            ->with('success', 'We have sent the information!');
+            ->with('status', 'We have sent the information!');
     }
 
     /**

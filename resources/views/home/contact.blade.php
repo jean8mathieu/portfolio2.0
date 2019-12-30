@@ -45,7 +45,7 @@
                                 src="https://www.google.com/recaptcha/api.js?render={{ env('RE_CAPTCHA_SITE_KEY') }}">
                             </script>
 
-                            <button type="submit" class="btn btn-success mt-3 w-100">
+                            <button id="btn-contact-form" type="submit" class="btn btn-success mt-3 w-100">
                                 Send Email
                             </button>
                         </form>
@@ -61,6 +61,7 @@
     <script type="text/javascript">
         let form = $('#contact_form');
         form.submit(function (event) {
+            $('#btn-contact-form').prop('disabled', 'disabled');
             event.preventDefault();
 
             grecaptcha.ready(function () {
