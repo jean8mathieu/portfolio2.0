@@ -54,7 +54,8 @@ To update a user password:
 `php artisan jmdev:update-user`
 
 ## Tests
-At this moment there's no PHPUnit test done. But when there will, instruction will be added.
+You can run the PHPUnit test by running the following command in the root of the project 
+folder `phpunit`. If you would like to see each test running you can use the following command: `phpunit --testdox`
 
 ## Contributors
 * [jean8mathieu](https://github.com/jean8mathieu)

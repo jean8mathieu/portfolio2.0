@@ -8,6 +8,12 @@ use Faker\Generator as Faker;
 
 $factory->define(Tag::class, function (Faker $faker) {
     $user = User::query()->first();
+
+    if (!$user) {
+        $user = factory(User::class)
+            ->create();
+    }
+
     $types = [Tag::TYPE_BACKEND, Tag::TYPE_FRONTEND, Tag::TYPE_DATABASE];
     return [
         'name' => $faker->word,
