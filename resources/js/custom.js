@@ -32,9 +32,16 @@ $(document).on('click', '.click', function () {
 });
 
 /**
- *
+ * Search and Select tag
  */
 $('.tag').tokenize2({
     dataSource: '/api/admin/tag',
     delimiter: ','
 });
+
+/**
+ * Tooltip functionality
+ */
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})

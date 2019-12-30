@@ -15,7 +15,9 @@ mix.js('resources/js/app.js', 'public/js')
     .scripts([
         'resources/js/classes/form.js',
         'resources/js/classes/notification.js',
-        'resources/js/custom.js'
     ], 'public/js/app-admin.js')
+    .scripts([
+        'resources/js/custom.js'
+    ], 'public/js/app-public.js')
     .sass('resources/sass/app.scss', 'public/css')
     .version();

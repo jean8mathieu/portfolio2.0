@@ -88,6 +88,7 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app-public.js') }}" defer></script>
     @yield('js')
 </body>
 </html>
