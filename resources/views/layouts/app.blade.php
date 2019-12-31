@@ -91,7 +91,7 @@
 
             <!-- Copyright -->
             <div class="footer-copyright text-center py-3">
-                Copyright © <a href="https://jmdev.ca">JMDev</a> 2016 - 2019
+                Copyright © <a href="https://jmdev.ca">JMDev</a> 2016 - {{ date('Y') }}
             </div>
             <!-- Copyright -->
 
