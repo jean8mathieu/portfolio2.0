@@ -22,7 +22,7 @@
 <body class="bg-dark text-white">
 <div id="app">
     @include('shared.message')
-    <nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color: #222">
+    <nav class="navbar navbar-expand-md navbar-dark shadow-sm bg-black">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home.index') }}">
                 {{ config('app.name', 'JMDev') }}
@@ -83,7 +83,7 @@
 </div>
 
 <!-- Footer -->
-    <footer class="page-footer" style="background-color: #222">
+    <footer class="page-footer bg-black">
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">

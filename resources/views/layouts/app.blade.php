@@ -21,7 +21,7 @@
 </head>
 <body class="bg-dark text-white">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-darkshadow-sm navbar-dark" style="background-color: #222">
+        <nav class="navbar navbar-expand-md navbar-darkshadow-sm navbar-dark bg-black">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home.index') }}">
                     {{ config('app.name', 'JMDev') }}
@@ -87,7 +87,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="page-footer" style="background-color: #222">
+        <footer class="page-footer bg-black">
 
             <!-- Copyright -->
             <div class="footer-copyright text-center py-3">
