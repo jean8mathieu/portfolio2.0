@@ -32,6 +32,7 @@
                         <form id="contact_form" action="{{ route('home.postContact') }}" method="post">
                             @csrf
                             <label for="from">From</label>
+<<<<<<< Updated upstream
                             <input id="from" name="from" type="email" placeholder="From" class="form-control {{ $errors->has('from') ? "is-invalid" : "" }}" required value="{{ old('from') }}">
                             @if ($errors->has('from'))
                                 <span class="invalid-feedback" role="alert">
@@ -49,6 +50,15 @@
 
                             <label for="body">Message</label>
                             <textarea id="body" name="body" placeholder="Message content" class="form-control {{ $errors->has('body') ? "is-invalid" : "" }}"
+=======
+                            <input id="from" name="from" type="email" placeholder="From" class="form-control text-white" style="background-color: #222" required value="{{ old('from') }}">
+
+                            <label for="subject">Subject</label>
+                            <input id="subject" name="subject" type="text" placeholder="Subject" class="form-control text-white" style="background-color: #222" required value="{{ old('subject') }}">
+
+                            <label for="body">Message</label>
+                            <textarea id="body" name="body" placeholder="Message content" class="form-control text-white" style="background-color: #222"
+>>>>>>> Stashed changes
                                       rows="10">{{ old('body') }}</textarea>
                             @if ($errors->has('body'))
                                 <span class="invalid-feedback" role="alert">

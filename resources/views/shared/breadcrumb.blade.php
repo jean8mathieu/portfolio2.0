@@ -1,6 +1,6 @@
 <div>
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb" style="background-color: #222">
             @foreach($breadcrumb as $key => $value)
                 <li class="breadcrumb-item {{ ($value == end($breadcrumb)) ? 'active' : '' }}">
                     @if($value === end($breadcrumb))
