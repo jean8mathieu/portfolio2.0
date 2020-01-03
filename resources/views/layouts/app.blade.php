@@ -91,11 +91,7 @@
 
             <!-- Copyright -->
             <div class="footer-copyright text-center py-3">
-<<<<<<< Updated upstream
                 Copyright © <a href="https://jmdev.ca">JMDev</a> 2016 - {{ date('Y') }}
-=======
-                Copyright © <a href="https://jmdev.ca">JMDev</a> 2016 - 2020
->>>>>>> Stashed changes
             </div>
             <!-- Copyright -->
 

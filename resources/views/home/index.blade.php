@@ -18,15 +18,9 @@
                     @foreach($projectsSlider as $project)
                         <div class="carousel-item {{ $loop->index === 0 ? "active" : "" }}">
                             <img src="{{ $project->cover }}" class="w-100 cover-slider" alt="Project's image">
-<<<<<<< Updated upstream
                             <div class="carousel-caption d-none d-md-block bgo-dark">
                                 <h5>{{ $project->title }}</h5>
                                 <p>{{ $project->summary }}</p>
-=======
-                            <div class="carousel-caption d-none d-md-block" style="background-color: rgba(0,0,0,0.7)">
-                                <h5 class="text-white;">{{ $project->title }}</h5>
-                                <p class="text-white;">{{ $project->summary }}</p>
->>>>>>> Stashed changes
                             </div>
                         </div>
                     @endforeach
