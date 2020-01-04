@@ -14,10 +14,10 @@
 
         <form action="{{ route('api.admin.tag.store') }}" id="form" method="POST">
             <label for="name">Name</label>
-            <input id="name" type="text" name="name" class="form-control">
+            <input id="name" type="text" name="name" class="form-control text-white bg-black">
 
             <label for="type">Type</label>
-            <select id="type" name="type" class="form-control">
+            <select id="type" name="type" class="form-control text-white bg-black">
                 <option></option>
                 @foreach(\App\Models\Tag::$types as $key => $value)
                     <option value="{{ $key }}">

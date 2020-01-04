@@ -32,7 +32,7 @@
                         <form id="contact_form" action="{{ route('home.postContact') }}" method="post">
                             @csrf
                             <label for="from">From</label>
-                            <input id="from" name="from" type="email" placeholder="From" class="form-control {{ $errors->has('from') ? "is-invalid" : "" }}" required value="{{ old('from') }}">
+                            <input id="from" name="from" type="email" placeholder="From" class="form-control {{ $errors->has('from') ? "is-invalid" : "" }} text-white bg-black" required value="{{ old('from') }}">
                             @if ($errors->has('from'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('from') }}</strong>
@@ -40,7 +40,7 @@
                             @endif
 
                             <label for="subject">Subject</label>
-                            <input id="subject" name="subject" type="text" placeholder="Subject" class="form-control {{ $errors->has('subject') ? "is-invalid" : "" }}" required value="{{ old('subject') }}">
+                            <input id="subject" name="subject" type="text" placeholder="Subject" class="form-control text-white bg-black" required value="{{ old('subject') }}">
                             @if ($errors->has('subject'))
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('subject') }}</strong>
@@ -48,8 +48,7 @@
                             @endif
 
                             <label for="body">Message</label>
-                            <textarea id="body" name="body" placeholder="Message content" class="form-control {{ $errors->has('body') ? "is-invalid" : "" }}"
-                                      rows="10">{{ old('body') }}</textarea>
+                            <textarea id="body" name="body" placeholder="Message content" class="form-control text-white bg-black" rows="10">{{ old('body') }}</textarea>
                             @if ($errors->has('body'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('body') }}</strong>

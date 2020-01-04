@@ -19,9 +19,9 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @yield('css')
 </head>
-<body>
+<body class="bg-dark text-white">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-darkshadow-sm navbar-dark bg-black">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home.index') }}">
                     {{ config('app.name', 'JMDev') }}
@@ -87,7 +87,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="page-footer bg-white">
+        <footer class="page-footer bg-black">
 
             <!-- Copyright -->
             <div class="footer-copyright text-center py-3">

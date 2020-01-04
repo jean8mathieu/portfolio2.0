@@ -16,13 +16,13 @@
 
         <form action="{{ route('api.admin.project.update', [$project]) }}" id="form" method="PUT" enctype="multipart/form-data">
             <label for="title">Title</label>
-            <input id="title" type="text" name="title" class="form-control" value="{{ $project->title }}">
+            <input id="title" type="text" name="title" class="form-control text-white bg-black" value="{{ $project->title }}">
 
             <label for="summary">Summary</label>
-            <textarea id="summary" class="form-control" name="summary">{{ $project->summary }}</textarea>
+            <textarea id="summary" class="form-control text-white bg-black" name="summary">{{ $project->summary }}</textarea>
 
             <label for="description">Description</label>
-            <textarea id="description" class="form-control" name="description" rows="10">{{ $project->description }}</textarea>
+            <textarea id="description" class="form-control text-white bg-black" name="description" rows="10">{{ $project->description }}</textarea>
 
             <label for="tag">Tag</label>
             <select id="tag" name="tag[]" class="tag custom-select" multiple></select>
@@ -31,10 +31,10 @@
             <input id="cover" type="file" name="cover" class="form-control">
 
             <label for="url">Website</label>
-            <input id="url" type="url" name="url" class="form-control" value="{{ $project->url }}">
+            <input id="url" type="url" name="url" class="form-control text-white bg-black" value="{{ $project->url }}">
 
             <label for="repository">Repository</label>
-            <input id="repository" type="url" name="repository" class="form-control" value="{{ $project->repo_url }}">
+            <input id="repository" type="url" name="repository" class="form-control text-white bg-black" value="{{ $project->repo_url }}">
 
             <button type="button" class="btn btn-success btn-submit click mt-3">
                 Update

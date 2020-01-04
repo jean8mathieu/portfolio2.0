@@ -18,7 +18,7 @@
             </span>
         </h1>
 
-        <table class="table table-hover">
+        <table class="table table-dark table-hover text-white mt-5">
             <thead>
             <tr>
                 <th scope="col">#</th>
