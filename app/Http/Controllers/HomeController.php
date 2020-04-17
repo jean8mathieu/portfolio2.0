@@ -141,4 +141,14 @@ class HomeController extends Controller
 
         return view('home.index', compact('projectsSlider', 'projects', 'tag'));
     }
+
+    /**
+     * Show the experience
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function experience()
+    {
+        return view('home.experience');
+    }
 }
