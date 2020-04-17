@@ -14,6 +14,7 @@ class TagController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Tag::class);
         $tags = Tag::query()
             ->orderBy('created_at', 'DESC')
             ->paginate(25);
@@ -28,6 +29,7 @@ class TagController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Tag::class);
         return  view('admin.tag.create');
     }
 
@@ -39,6 +41,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
+        $this->authorize('update', $tag);
         return view('admin.tag.edit', compact('tag'));
     }
 }

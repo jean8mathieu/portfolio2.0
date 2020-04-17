@@ -16,9 +16,11 @@ class TagController extends Controller
      *
      * @param  Request $request
      * @return array
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index(Request $request)
     {
+        $this->authorize('viewAny', Tag::class);
         $filteredTag = [];
 
         //Search for the tag containing the string
@@ -49,9 +51,11 @@ class TagController extends Controller
      *
      * @param  StoreRequest $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(StoreRequest $request)
     {
+        $this->authorize('create', Tag::class);
         if (Tag::create([
             'name' => $request->name,
             'type' => $request->type,
@@ -74,9 +78,11 @@ class TagController extends Controller
      * @param  UpdateRequest $request
      * @param  Tag $tag
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(UpdateRequest $request, Tag $tag)
     {
+        $this->authorize('update', $tag);
         if ($tag->update([
             'name' => $request->name,
             'type' => $request->type,
@@ -102,6 +108,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
+        $this->authorize('delete', $tag);
         if ($tag->delete()) {
             return response([
                 'message' => "The tag have been successfully deleted!",

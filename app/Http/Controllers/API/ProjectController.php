@@ -18,9 +18,11 @@ class ProjectController extends Controller
      *
      * @param  StoreRequest $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(StoreRequest $request)
     {
+        $this->authorize('create', Project::class);
         $project = Project::create([
             'title' => $request->title,
             'summary' => $request->summary,
@@ -59,9 +61,11 @@ class ProjectController extends Controller
      * @param  UpdateRequest $request
      * @param  Project $project
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(UpdateRequest $request, Project $project)
     {
+        $this->authorize('update', $project);
         $success = $project->update([
             'title' => $request->title,
             'summary' => $request->summary,
@@ -103,6 +107,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        $this->authorize('delete', $project);
         if ($project->delete()) {
             return response([
                 'message' => "The project have been successfully deleted!"
