@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Experience;
 use Illuminate\Http\Request;
 
 class ExperienceController extends Controller
@@ -30,10 +31,10 @@ class ExperienceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Experience $experience
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Experience $experience)
     {
         //
     }
@@ -41,10 +42,10 @@ class ExperienceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Experience $experience
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Experience $experience)
     {
         //
     }
