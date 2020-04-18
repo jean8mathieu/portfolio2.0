@@ -48,6 +48,12 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.experience.index') }}">
+                            Work Experience
+                        </a>
+                    </li>
+
                     <!-- Authentication Links -->
 
                     <li class="nav-item dropdown">

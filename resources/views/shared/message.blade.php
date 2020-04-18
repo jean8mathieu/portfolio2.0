@@ -1,6 +1,6 @@
 <div aria-live="polite" aria-atomic="true" style="position: fixed; top: 100px; right: 25px; z-index: 999999">
     @if (session('status'))
-        <div class="toast toast-success fade show" data-autohide="false">
+        <div class="toast toast-success fade show bgo-dark" data-autohide="false">
             <div class="toast-header">
                 <strong class="mr-auto text-success">Success</strong>
                 <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
@@ -14,7 +14,7 @@
     @endif
     {{-- Unauthorized Errors --}}
     @if (session('unauthorized'))
-        <div class="toast toast-error fade show" data-autohide="false">
+        <div class="toast toast-error fade show bgo-dark" data-autohide="false">
             <div class="toast-header">
                 <strong class="mr-auto text-danger">
                     You don't have permission
@@ -31,7 +31,7 @@
 
     @if(count($errors) > 0)
         @foreach($errors->all() as $error)
-            <div class="toast toast-error fade show" data-autohide="false">
+            <div class="toast toast-error fade show bgo-dark" data-autohide="false">
                 <div class="toast-header">
                     <strong class="mr-auto text-danger">Error</strong>
                     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">

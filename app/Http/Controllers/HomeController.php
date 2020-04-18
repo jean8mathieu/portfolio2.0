@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Home\ContactRequest;
+use App\Models\Experience;
 use App\Models\Project;
 use App\Models\Tag;
 use App\Models\User;
@@ -149,6 +150,8 @@ class HomeController extends Controller
      */
     public function experience()
     {
-        return view('home.experience');
+        $experiences = Experience::orderByDesc('started_at')->get();
+
+        return view('home.experience', compact('experiences'));
     }
 }

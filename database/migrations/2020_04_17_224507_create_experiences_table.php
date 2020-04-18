@@ -19,7 +19,7 @@ class CreateExperiencesTable extends Migration
             $table->string('company_name', 100);
             $table->date('started_at');
             $table->date('ended_at')->nullable();
-            $table->string('location');
+            $table->string('location')->nullable();
             $table->text('description');
             $table->text('markdown_description');
             $table->timestamps();

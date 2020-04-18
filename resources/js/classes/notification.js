@@ -34,7 +34,7 @@ class Notification {
         }
 
 
-        $('.toast-dynamic').append(`<div class="toast toast-auto-${this._id}" ${temp}>
+        $('.toast-dynamic').append(`<div class="toast toast-auto-${this._id} bgo-dark" ${temp}>
                <div class="toast-header">
                <strong class="mr-auto text-${type}">${title}</strong>
                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
