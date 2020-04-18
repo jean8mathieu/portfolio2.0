@@ -16,7 +16,7 @@
                 <div class="col-md-12">
                     <h3>{{ $experience->position  }} <small>at {{ $experience->company_name }}</small></h3>
                     <h6>
-                        {{ $experience->started_at }} - {{ $experience->ended_at ? $experience->ended_at : "Present" }}
+                        {{ \Carbon\Carbon::parse($experience->started_at)->format("M Y") }} - {{ $experience->ended_at ? \Carbon\Carbon::parse($experience->ended_at)->format('M Y') : "Present" }}
                     </h6>
                     @if($experience->location)
                         <h6>{{ $experience->location }}</h6>
