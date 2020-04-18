@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Home\ContactRequest;
+use App\Models\Experience;
 use App\Models\Project;
 use App\Models\Tag;
 use App\Models\User;
@@ -140,5 +141,17 @@ class HomeController extends Controller
             ->paginate();
 
         return view('home.index', compact('projectsSlider', 'projects', 'tag'));
+    }
+
+    /**
+     * Show the experience
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function experience()
+    {
+        $experiences = Experience::orderByDesc('started_at')->get();
+
+        return view('home.experience', compact('experiences'));
     }
 }

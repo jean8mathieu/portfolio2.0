@@ -49,6 +49,11 @@
                                 Contact
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home.experience') }}">
+                                Work Experience
+                            </a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

@@ -23,6 +23,7 @@ Route::group([
     Route::get('about', 'HomeController@about')->name('about');
     Route::get('contact', 'HomeController@contact')->name('contact');
     Route::post('contact', 'HomeController@postContact')->name('postContact');
+    Route::get('experience', 'HomeController@experience')->name('experience');
 });
 
 Route::group([
@@ -34,6 +35,7 @@ Route::group([
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::resource('project', 'ProjectController')->only(['create', 'edit']);
     Route::resource('tag', 'TagController')->only(['index', 'create', 'edit']);
+    Route::resource('experience', 'ExperienceController')->only(['index', 'create', 'edit']);
 });
 
 
@@ -49,5 +51,6 @@ Route::group([
     ], function () {
         Route::resource('project', 'ProjectController')->only(['store', 'update', 'destroy']);
         Route::resource('tag', 'TagController')->only(['index', 'store', 'update', 'destroy']);
+        Route::resource('experience', 'ExperienceController')->only(['index', 'store', 'update', 'destroy']);
     });
 });

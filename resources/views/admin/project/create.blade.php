@@ -35,7 +35,7 @@
             <input id="repository" type="url" name="repository" class="form-control text-white bg-black">
 
             <button type="button" class="btn btn-success btn-submit click mt-3">
-                Submit
+                Create
             </button>
         </form>
     </div>
