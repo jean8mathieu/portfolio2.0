@@ -15,13 +15,13 @@ class TagController extends Controller
      * Display a listing of the resource.
      *
      * @param  Request $request
-     * @return array
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index(Request $request)
     {
         $this->authorize('viewAny', Tag::class);
-        $filteredTag = [];
+        $filteredTags = [];
 
         //Search for the tag containing the string
         $tags = Tag::query()
@@ -37,13 +37,13 @@ class TagController extends Controller
 
         //Generate the array
         foreach ($tags as $tag) {
-            $filteredTag[] = [
+            $filteredTags[] = [
                 'text' => $tag->name,
                 'value' => $tag->id
             ];
         }
 
-        return $filteredTag;
+        return response($filteredTags, 200);
     }
 
     /**

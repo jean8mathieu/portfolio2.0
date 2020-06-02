@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 @section('title')
-    Admin - Tag
+    Admin - Setting
 @endsection
 
 @section('content')
     <div class="container">
         <h1>Tags
             <span class="float-right">
-                <a href="{{ route('admin.tag.create') }}" class="btn btn-success" title="Create a new tag">
+                <a href="{{ route('admin.setting.create') }}" class="btn btn-success" title="Create a new tag">
                     <i class="fas fa-plus"></i>
                 </a>
             </span>
@@ -17,25 +17,21 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Type</th>
-                <th scope="col">Created By</th>
+                <th scope="col">Key</th>
                 <th scope="col">Created At</th>
                 <th scope="col">Updated At</th>
                 <th scope="col">Edit</th>
             </tr>
             </thead>
             <tbody>
-            @forelse($tags as $tag)
+            @forelse($settings as $setting)
                 <tr>
-                    <th scope="row">{{ $tag->id }}</th>
-                    <td>{{ $tag->name }}</td>
-                    <td>{{ \App\Models\Tag::$types[$tag->type] }}</td>
-                    <td>{{ $tag->user->username }}</td>
-                    <td>{{ $tag->created_at }}</td>
-                    <td>{{ $tag->updated_at }}</td>
+                    <th scope="row">{{ $setting->id }}</th>
+                    <td>{{ $setting->key }}</td>
+                    <td>{{ $setting->created_at }}</td>
+                    <td>{{ $setting->updated_at }}</td>
                     <td>
-                        <a href="{{ route('admin.tag.edit', [$tag]) }}" class="btn btn-primary" title="Edit tag">
+                        <a href="{{ route('admin.setting.edit', [$setting]) }}" class="btn btn-primary" title="Edit tag">
                             <i class="far fa-edit"></i>
                         </a>
                     </td>
@@ -51,7 +47,7 @@
         <hr>
 
         <div class="row justify-content-center">
-            {!! $tags->render() !!}
+            {!! $settings->render() !!}
         </div>
     </div>
 @endsection
