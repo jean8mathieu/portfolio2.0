@@ -16,5 +16,7 @@ class DevelopmentSeeder extends Seeder
         $this->call(FakeUsersSeeder::class);
         $this->call(TagsSeeder::class);
         $this->call(FakeProjectsSeeder::class);
+        $this->call(FakeSiteSettingSeeder::class);
+        $this->call(FakeExperienceSeeder::class);
     }
 }

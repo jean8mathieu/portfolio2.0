@@ -16,7 +16,7 @@ $factory->define(Project::class, function (Faker $faker) {
     return [
         'user_id' => $user->id,
         'title' => $faker->sentence,
-        'summary' => $faker->paragraph,
+        'summary' => $faker->sentence,
         'description' => $description,
         'markdown_description' => Markdown::convertToHtml($description),
         'cover' => $faker->imageUrl(1920, 1080),

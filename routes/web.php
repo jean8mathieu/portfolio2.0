@@ -11,6 +11,9 @@
 |
 */
 
+/**
+ * WEB Routes
+ */
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -36,9 +39,12 @@ Route::group([
     Route::resource('project', 'ProjectController')->only(['create', 'edit']);
     Route::resource('tag', 'TagController')->only(['index', 'create', 'edit']);
     Route::resource('experience', 'ExperienceController')->only(['index', 'create', 'edit']);
+    Route::resource('setting', 'SiteSettingController')->only(['index', 'create', 'edit']);
 });
 
-
+/**
+ * API Routes
+ */
 Route::group([
     'prefix' => 'api',
     'namespace' => 'API',
@@ -52,5 +58,6 @@ Route::group([
         Route::resource('project', 'ProjectController')->only(['store', 'update', 'destroy']);
         Route::resource('tag', 'TagController')->only(['index', 'store', 'update', 'destroy']);
         Route::resource('experience', 'ExperienceController')->only(['index', 'store', 'update', 'destroy']);
+        Route::resource('setting', 'SiteSettingController')->only(['index', 'store', 'update', 'destroy']);
     });
 });

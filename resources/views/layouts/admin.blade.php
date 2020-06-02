@@ -50,7 +50,13 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.experience.index') }}">
-                            Work Experience
+                            Work Experiences
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.setting.index') }}">
+                            Settings
                         </a>
                     </li>
 
