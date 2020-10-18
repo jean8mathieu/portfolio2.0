@@ -15,11 +15,6 @@
                     <div class="col-md-12">
                         <div class="alert alert-danger" role="alert">
                             <h4 class="alert-heading">No project found...</h4>
-                            <p>
-                                We couldn't find any project... Please make sure you add some before people come visit
-                                your
-                                site
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -40,10 +35,6 @@
                     <div class="col-md-12">
                         <div class="alert alert-danger" role="alert">
                             <h4 class="alert-heading">No blog found...</h4>
-                            <p>
-                                We couldn't find any blog... Please make sure you add some before people come visit your
-                                site
-                            </p>
                         </div>
                     </div>
                 </div>
