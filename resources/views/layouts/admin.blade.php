@@ -43,6 +43,12 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.blog.index') }}">
+                            Blogs
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.tag.index') }}">
                             Tags
                         </a>

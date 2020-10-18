@@ -39,6 +39,7 @@ Route::group([
 ], function() {
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::resource('project', 'ProjectController')->only(['create', 'edit']);
+    Route::resource('blog', 'BlogController')->only(['index', 'create', 'edit']);
     Route::resource('tag', 'TagController')->only(['index', 'create', 'edit']);
     Route::resource('experience', 'ExperienceController')->only(['index', 'create', 'edit']);
     Route::resource('setting', 'SiteSettingController')->only(['index', 'create', 'edit']);
@@ -58,6 +59,7 @@ Route::group([
         'middleware' => ['auth'],
     ], function () {
         Route::resource('project', 'ProjectController')->only(['store', 'update', 'destroy']);
+        Route::resource('blog', 'BlogController')->only(['store', 'update', 'destroy']);
         Route::resource('tag', 'TagController')->only(['index', 'store', 'update', 'destroy']);
         Route::resource('experience', 'ExperienceController')->only(['index', 'store', 'update', 'destroy']);
         Route::resource('setting', 'SiteSettingController')->only(['index', 'store', 'update', 'destroy']);

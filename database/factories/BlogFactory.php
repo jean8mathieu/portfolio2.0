@@ -20,8 +20,6 @@ $factory->define(Blog::class, function (Faker $faker) {
         'description' => $description,
         'markdown_description' => Markdown::convertToHtml($description),
         'cover' => "https://picsum.photos/1920/1080",
-        'url' => $faker->url,
-        'repo_url' => $faker->url
     ];
 });
 

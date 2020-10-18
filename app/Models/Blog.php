@@ -34,9 +34,7 @@ class Blog extends Model
         'summary',
         'description',
         'markdown_description',
-        'cover',
-        'url',
-        'repo_url'
+        'cover'
     ];
 
     /**

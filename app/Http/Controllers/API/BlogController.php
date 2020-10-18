@@ -28,9 +28,7 @@ class BlogController extends Controller
             'summary' => $request->summary,
             'description' => $request->description,
             'markdown_description' => Markdown::convertToHtml($request->description),
-            'url' => $request->url,
             'user_id' => Auth::id(),
-            'repo_url' => $request->repository
         ]);
 
         if (!$blog) {
@@ -71,9 +69,7 @@ class BlogController extends Controller
             'summary' => $request->summary,
             'description' => $request->description,
             'markdown_description' => Markdown::convertToHtml($request->description),
-            'url' => $request->url,
             'user_id' => Auth::id(),
-            'repo_url' => $request->repository
         ]);
 
         if (!$success) {
