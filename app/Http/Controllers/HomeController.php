@@ -21,13 +21,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+        if(!isset($request->page) && empty($request->page)) {
         $projectsSlider = Project::query()
             ->whereNotNull('cover')
             ->orderBy('created_at', 'desc')
             ->limit('5')
             ->get();
+         } else {
+            $projectsSlider = collect();
+        }
 
         $projects = Project::query()
             ->orderBy('created_at', 'desc')

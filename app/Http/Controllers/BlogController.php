@@ -16,7 +16,7 @@ class BlogController extends Controller
     {
         $blogs = Blog::query()
             ->orderBy('created_at', 'desc')
-            ->paginate();
+            ->paginate(5);
 
         return view('blog.index', compact('blogs'));
     }
@@ -25,7 +25,7 @@ class BlogController extends Controller
      * Display the specified resource.
      *
      * @param  Blog $blog
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show(Blog $blog)
     {

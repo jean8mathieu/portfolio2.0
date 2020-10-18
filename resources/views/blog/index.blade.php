@@ -3,6 +3,8 @@
 
 @section('content')
     <div class="container">
+        <h1>Blogs <small>{{ isset($tag) ? "({$tag->name})" : "" }}</small></h1>
+
         @forelse($blogs ?? [] as $blog)
             <div class="row mt-3">
                 @include('block.content-box', ['model' => $blog])
