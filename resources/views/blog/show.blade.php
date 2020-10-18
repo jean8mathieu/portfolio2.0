@@ -17,7 +17,7 @@
             <img src="/storage/images/assets/notfound.jpg" alt="" class="w-100 cover">
         @endif
 
-        <div class="mt-3">
+        <div class="mt-3 mw-100">
             {!! $blog->markdown_description !!}
         </div>
 

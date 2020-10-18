@@ -24,25 +24,27 @@
         @endforeach
     @endif
 
-    @if(\App\Models\Blog::class === get_class($model))
-        {!! $model->getFirstParagraph() !!}
-    @else
-        {!! $model->markdown_description !!}
-    @endif
+    <div class="mw-100">
+        @if(\App\Models\Blog::class === get_class($model))
+            {!! $model->getFirstParagraph() !!}
+        @else
+            {!! $model->markdown_description !!}
+        @endif
+    </div>
 
 
     <div class="mt-3 row">
         @if(isset($model->url))
-        <div class="col-md-6">
-            <a
-                href="{{ $model->url }}"
-                class="btn btn-primary w-100"
-                target="_blank"
-                data-toggle="tooltip"
-                title="View Project">
-                <i class="fas fa-paperclip"></i>
-            </a>
-        </div>
+            <div class="col-md-6">
+                <a
+                    href="{{ $model->url }}"
+                    class="btn btn-primary w-100"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    title="View Project">
+                    <i class="fas fa-paperclip"></i>
+                </a>
+            </div>
         @endif
 
         @if(isset($model->repo_url))

@@ -25,7 +25,7 @@
             <input id="location" type="text" class="form-control text-white bg-black" name="location" value="{{ $experience->location }}">
 
             <label for="description">Description</label>
-            <textarea id="description" class="form-control text-white bg-black" name="description" rows="10">{{ $experience->description }}</textarea>
+            <textarea id="description" class="form-control text-white bg-black markdown-editor" name="description" rows="10">{{ $experience->description }}</textarea>
 
             <label for="started_at">Started at</label>
             <input id="started_at" type="date" class="form-control text-white bg-black" name="started_at" value="{{ $experience->started_at }}">

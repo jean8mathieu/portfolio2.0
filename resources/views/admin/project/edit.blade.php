@@ -22,7 +22,7 @@
             <textarea id="summary" class="form-control text-white bg-black" name="summary">{{ $project->summary }}</textarea>
 
             <label for="description">Description</label>
-            <textarea id="description" class="form-control text-white bg-black" name="description" rows="10">{{ $project->description }}</textarea>
+            <textarea id="description" class="form-control text-white bg-black markdown-editor" name="description" rows="10">{{ $project->description }}</textarea>
 
             <label for="tag">Tag</label>
             <select id="tag" name="tag[]" class="tag custom-select" multiple></select>

@@ -17,7 +17,7 @@
             <input id="name" type="text" name="key" class="form-control text-white bg-black">
 
             <label for="value" class="mt-3">Value</label>
-            <textarea id="value" name="value" class="form-control text-white bg-black" rows="5"></textarea>
+            <textarea id="value" name="value" class="form-control text-white bg-black markdown-editor" rows="5"></textarea>
 
             <button type="button" class="btn btn-success btn-submit click mt-3">
                 Create
