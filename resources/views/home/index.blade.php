@@ -42,7 +42,7 @@
 
         @forelse($projects ?? [] as $project)
             <div class="row mt-3">
-                @include('block.project-box', ['project' => $project])
+                @include('block.content-box', ['model' => $project])
             </div>
             <hr>
         @empty

@@ -11,7 +11,8 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 $factory->define(Blog::class, function (Faker $faker) {
     $user = User::query()->first();
 
-    $description = $faker->realText(200);
+    $description = $faker->paragraphs(rand(1, 4));
+    $description = implode("\n\n", $description);
 
     return [
         'user_id' => $user->id,

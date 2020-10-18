@@ -31,7 +31,7 @@ class HomeController extends Controller
 
         $projects = Project::query()
             ->orderBy('created_at', 'desc')
-            ->paginate();
+            ->paginate(5);
 
         return view('home.index', compact('projects', 'projectsSlider'));
     }
@@ -110,17 +110,15 @@ class HomeController extends Controller
      */
     public function tag(Tag $tag)
     {
-        $projectsSlider = $tag->projects()
-            ->whereNotNull('cover')
-            ->orderBy('created_at', 'desc')
-            ->limit('5')
-            ->get();
-
         $projects = $tag->projects()
             ->orderBy('created_at', 'desc')
-            ->paginate();
+            ->get();
 
-        return view('home.index', compact('projectsSlider', 'projects', 'tag'));
+        $blogs = $tag->blogs()
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
+        return view('tag.index', compact('projects', 'tag', 'blogs'));
     }
 
     /**

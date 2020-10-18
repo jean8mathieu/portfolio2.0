@@ -1,28 +1,41 @@
 <div class="col-md-8">
-    @if(!empty($project->cover))
-        <img src="{{ $project->cover }}" alt="" class="w-100 cover">
+    @if(!empty($model->cover))
+        <img src="{{ $model->cover }}" alt="" class="w-100 cover">
     @else
         <img src="/storage/images/assets/notfound.jpg" alt="" class="w-100 cover">
     @endif
 
 </div>
 <div class="col-md-4">
-    <h3>{{ $project->title }}</h3>
+    <h3>
+        @if(\App\Models\Blog::class === get_class($model))
+            <a href="{{ route('blog.show', [$model]) }}" class="text-decoration-none">
+                {{ $model->title }}
+            </a>
+        @else
+            {{ $model->title }}
+        @endif
 
-    @if($project->tags && sizeof($project->tags) > 0)
-        @foreach($project->tags as $tag)
+    </h3>
+
+    @if($model->tags && sizeof($model->tags) > 0)
+        @foreach($model->tags as $tag)
             {!! $tag->getButton() !!}
         @endforeach
     @endif
 
-    {!! $project->markdown_description !!}
+    @if(\App\Models\Blog::class === get_class($model))
+        {!! $model->getFirstParagraph() !!}
+    @else
+        {!! $model->markdown_description !!}
+    @endif
 
 
     <div class="mt-3 row">
-        @if($project->url)
+        @if(isset($model->url))
         <div class="col-md-6">
             <a
-                href="{{ $project->url }}"
+                href="{{ $model->url }}"
                 class="btn btn-primary w-100"
                 target="_blank"
                 data-toggle="tooltip"
@@ -32,9 +45,9 @@
         </div>
         @endif
 
-        @if($project->repo_url)
+        @if(isset($model->repo_url))
             <div class="col-md-6">
-                <a href="{{ $project->repo_url }}"
+                <a href="{{ $model->repo_url }}"
                    class="btn btn-primary w-100"
                    target="_blank"
                    data-toggle="tooltip"

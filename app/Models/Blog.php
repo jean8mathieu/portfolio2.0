@@ -66,4 +66,25 @@ class Blog extends Model
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
+
+    /**
+     * Get the first paragraph
+     *
+     * @return bool|string
+     */
+    public function getFirstParagraph()
+    {
+        return  substr(
+            $this->markdown_description,
+            strpos(
+                $this->markdown_description,
+                "<p"
+            ),
+            strpos(
+                $this->markdown_description,
+                "</p>"
+            )+4
+        );
+
+    }
 }
