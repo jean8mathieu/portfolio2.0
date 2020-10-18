@@ -2,13 +2,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Project;
+use App\Models\Blog;
 use App\Models\Tag;
 use App\Models\User;
 use Faker\Generator as Faker;
 use GrahamCampbell\Markdown\Facades\Markdown;
 
-$factory->define(Project::class, function (Faker $faker) {
+$factory->define(Blog::class, function (Faker $faker) {
     $user = User::query()->first();
 
     $description = $faker->realText(200);
@@ -25,7 +25,7 @@ $factory->define(Project::class, function (Faker $faker) {
     ];
 });
 
-$factory->afterCreatingState(Project::class, 'withRecords', function (Project $project, Faker $faker) {
+$factory->afterCreatingState(Blog::class, 'withRecords', function (Blog $project, Faker $faker) {
     $tags = collect();
     for ($i = 0; $i < rand(1, 5); $i++) {
         $tags->push(Tag::all()->random()->id);

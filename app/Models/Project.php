@@ -21,7 +21,7 @@ class Project extends Model
      *
      * @var array
      */
-    protected $with = ['tags', 'user'];
+    protected $with = ['user'];
 
     /**
      * Fillable values
@@ -50,12 +50,22 @@ class Project extends Model
     }
 
     /**
-     * Get the tags object
+     * Get the tags object (Depracted)
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function tags()
+    public function tags_old()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    /**
+     * Get the tags object
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
     }
 }
