@@ -29,6 +29,8 @@ Route::group([
     Route::get('experience', 'HomeController@experience')->name('experience');
 });
 
+Route::resource('blog', 'BlogController')->only(['index', 'show']);
+
 Route::group([
     'as' => 'admin.',
     'prefix' => 'admin',
