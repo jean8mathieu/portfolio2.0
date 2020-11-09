@@ -106,7 +106,8 @@ class BlogController extends Controller
         $this->authorize('delete', $blog);
         if ($blog->delete()) {
             return response([
-                'message' => "The blog have been successfully deleted!"
+                'message' => "The blog have been successfully deleted!",
+                'redirect' => route('admin.blog.index')
             ], 200);
         }
 

@@ -100,7 +100,8 @@ class SiteSettingController extends Controller
 
         if ($setting->delete()) {
             return response([
-                'message' => "The setting have been successfully deleted!"
+                'message' => "The setting have been successfully deleted!",
+                'redirect' => route('admin.setting.index')
             ], 200);
         }
 

@@ -110,7 +110,8 @@ class ProjectController extends Controller
         $this->authorize('delete', $project);
         if ($project->delete()) {
             return response([
-                'message' => "The project have been successfully deleted!"
+                'message' => "The project have been successfully deleted!",
+                'redirect' => route('admin.home.index')
             ], 200);
         }
 
