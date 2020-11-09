@@ -1,7 +1,7 @@
 @if(!empty($model->cover))
     <div class="col-md-8">
-        <div>
-            <img src="{{ $model->cover }}" alt="{{ $model->title }}" class="embed-responsive embed-responsive-16by9 w-100 img-fluid">
+        <div class="embed-responsive embed-responsive-16by9">
+            <img src="{{ $model->cover }}" alt="{{ $model->title }}" class="embed-responsive-item img-fluid rounded">
         </div>
     </div>
 @endif
