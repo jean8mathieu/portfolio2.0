@@ -1,12 +1,11 @@
-<div class="col-md-8">
-    <div class="embed-responsive embed-responsive-16by9">
-        @if(!empty($model->cover))
-            <img src="{{ $model->cover }}" alt="" class="w-100">
-        @endif
+@if(!empty($model->cover))
+    <div class="col-md-8">
+        <div>
+            <img src="{{ $model->cover }}" alt="{{ $model->title }}" class="embed-responsive embed-responsive-16by9 w-100">
+        </div>
     </div>
-
-</div>
-<div class="col-md-4">
+@endif
+<div class="col-md-{{empty($model->cover) ? 12 : 4}}">
     <h3>
         @if(\App\Models\Blog::class === get_class($model))
             <a href="{{ route('blog.show', [$model->getSlug()]) }}" class="text-decoration-none">
@@ -15,7 +14,6 @@
         @else
             {{ $model->title }}
         @endif
-
     </h3>
 
     @if($model->tags && sizeof($model->tags) > 0)
