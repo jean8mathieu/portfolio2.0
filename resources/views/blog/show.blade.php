@@ -1,6 +1,28 @@
 @extends('layouts.app')
 @section('title', "Blog - {$blog->title}")
 
+@section('meta')
+    <meta property="og:url" content="{{ route('blog.show', [$blog->getSlug()]) }}"/>
+    <meta property="og:site_name" content="{{ config('app.name', 'JMDev') }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{ $blog->title }}"/>
+    <meta property="og:description" content="{{ $blog->summary }}"/>
+    @if($blog->cover)
+        <meta property="og:image" content="{{ $blog->cover }}"/>
+        <meta name="twitter:image" content="{{ $blog->cover }}"/>
+    @endif
+
+    @if(!empty(env('TWITTER_NAME')))
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:site" content="@truckersmp"/>
+        <meta name="twitter:title" content="{{ $blog->title }}"/>
+        <meta name="twitter:description" content="{{ $blog->summary }}"/>
+        @if($blog->cover)
+            <meta name="twitter:image" content="{{ $blog->cover }}"/>
+        @endif
+    @endif
+@endsection
+
 @section('content')
     <div class="container">
         <h3>{{ $blog->title }}
