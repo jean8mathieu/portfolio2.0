@@ -11,11 +11,9 @@
                 </div>
                 <hr>
             @empty
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="alert alert-danger" role="alert">
-                            <h4 class="alert-heading">No project found...</h4>
-                        </div>
+                <div class="col-md-12">
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">No project found...</h4>
                     </div>
                 </div>
             @endforelse
@@ -26,7 +24,7 @@
         <h3>Blogs <small>({{ $tag->name }})</small></h3>
         <div class="row">
             @forelse($blogs ?? [] as $blog)
-                <div class="row mt-3">
+                <div class="mt-3">
                     @include('block.content-box', ['model' => $blog])
                 </div>
                 <hr>

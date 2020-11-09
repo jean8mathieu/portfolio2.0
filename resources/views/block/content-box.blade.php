@@ -1,10 +1,8 @@
 <div class="col-md-8">
-    <div class="embed-responsive">
-        <div class="embed-responsive-16by9">
-            @if(!empty($model->cover))
-                <img src="{{ $model->cover }}" alt="" class="w-100">
-            @endif
-        </div>
+    <div class="embed-responsive embed-responsive-16by9">
+        @if(!empty($model->cover))
+            <img src="{{ $model->cover }}" alt="" class="w-100">
+        @endif
     </div>
 
 </div>
