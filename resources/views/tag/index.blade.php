@@ -29,11 +29,9 @@
                 </div>
                 <hr>
             @empty
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="alert alert-danger" role="alert">
-                            <h4 class="alert-heading">No blog found...</h4>
-                        </div>
+                <div class="col-md-12">
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">No blog found...</h4>
                     </div>
                 </div>
             @endforelse
