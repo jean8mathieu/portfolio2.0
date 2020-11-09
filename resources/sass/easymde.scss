@@ -1,0 +1,88 @@
+.CodeMirror {
+    color: #999;
+    border: 1px solid #303030;
+    border-radius: 0;
+    background: #202020;
+
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    &.CodeMirror-focused, &:hover {
+        box-shadow: none;
+        border: 1px solid #555;
+        border-radius: 0;
+    }
+}
+
+div.CodeMirror-cursor {
+    border-color: #999;
+}
+
+.editor-toolbar {
+    border-color: #303030;
+    border-radius: 0;
+
+    color: #999;
+
+    i.separator {
+        border-color: #303030;
+    }
+
+    button:hover, button.active {
+        background: #303030;
+    }
+
+    &.fullscreen {
+        background: #202020;
+
+        &::after, &::before {
+            background: none;
+        }
+    }
+}
+
+.editor-preview {
+    background: #202020;
+}
+
+.editor-preview-side {
+    border-color: #303030;
+}
+
+.cm-s-easymde {
+    .cm-header {
+        font-weight: 200;
+    }
+
+    .cm-formatting {
+        &.cm-formatting-header {
+            @extend .cm-header
+        }
+    }
+
+    .cm-comment {
+        color: #c7254e;
+        background: #444;
+        border-radius: 0;
+        font-size: 90%;
+
+        &:first-child {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    }
+
+    .cm-trailing-space-new-line::after {
+        color: #444;
+        content: '↲';
+    }
+
+    .cm-trailing-space-a:after, .cm-trailing-space-b:after {
+        color: #444;
+        content: '·';
+    }
+}

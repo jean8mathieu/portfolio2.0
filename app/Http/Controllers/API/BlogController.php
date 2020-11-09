@@ -3,15 +3,17 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Project\StoreRequest;
-use App\Http\Requests\Project\UpdateRequest;
+use App\Http\Requests\Blog\StoreRequest;
+use App\Http\Requests\Blog\UpdateRequest;
+use App\Models\Blog;
 use App\Models\Project;
 use App\Models\Tag;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
-class ProjectController extends Controller
+class BlogController extends Controller
 {
     /**
      * Store a newly created resource in storage.
@@ -22,36 +24,42 @@ class ProjectController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $this->authorize('create', Project::class);
-        $project = Project::create([
+        $this->authorize('create', Blog::class);
+
+        if (empty($request->slug)) {
+            $slug = Str::kebab($request->title);
+        } else {
+            $slug = Str::kebab($request->slug);
+        }
+
+        $blog = Blog::create([
             'title' => $request->title,
             'summary' => $request->summary,
+            'slug' => $slug,
             'description' => $request->description,
             'markdown_description' => Markdown::convertToHtml($request->description),
-            'url' => $request->url,
             'user_id' => Auth::id(),
-            'repo_url' => $request->repository
         ]);
 
-        if(!$project) {
+        if (!$blog) {
             return response([
-                'message' => "We could not create the project... Please try again..."
+                'message' => "We could not create the blog... Please try again..."
             ], 500);
         }
 
-        if (!$data = $this->updateMultipleTags($project, $request, 'tag', 'tags')) {
+        if (!$data = $this->updateMultipleTags($blog, $request, 'tag', 'tags')) {
             return response($data, 500);
         }
 
-        if($this->updateCoverPicture($project, $request) === false) {
+        if ($this->updateCoverPicture($blog, $request) === false) {
             return response([
                 'message' => "We could not add the cover picture... Please try again..."
             ], 500);
         }
 
         return response([
-            'message' => "The project was successfully created!",
-            'redirect' => route('admin.home.index')
+            'message' => "The blog was successfully created!",
+            'redirect' => route('admin.blog.index')
         ], 200);
     }
 
@@ -59,84 +67,92 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  UpdateRequest $request
-     * @param  Project $project
+     * @param  Blog $blog
      * @return \Illuminate\Http\Response
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function update(UpdateRequest $request, Project $project)
+    public function update(UpdateRequest $request, Blog $blog)
     {
-        $this->authorize('update', $project);
-        $success = $project->update([
+        $this->authorize('update', $blog);
+
+        if ($request->slug !== $blog->slug) {
+           $slug = Str::kebab($request->slug);
+        } elseif (empty($request->slug)) {
+            $slug = Str::kebab($request->title);
+        } else {
+            $slug = $blog->slug;
+        }
+
+        $success = $blog->update([
             'title' => $request->title,
             'summary' => $request->summary,
+            'slug' => $slug,
             'description' => $request->description,
             'markdown_description' => Markdown::convertToHtml($request->description),
-            'url' => $request->url,
             'user_id' => Auth::id(),
-            'repo_url' => $request->repository
         ]);
 
         if (!$success) {
             return response([
-                'message' => "We could not update the project... Please try again..."
+                'message' => "We could not update the blog... Please try again..."
             ], 500);
         }
 
-        if (!$data = $this->updateMultipleTags($project, $request, 'tag', 'tags')) {
+        if (!$data = $this->updateMultipleTags($blog, $request, 'tag', 'tags')) {
             return response($data, 500);
         }
 
-        if($this->updateCoverPicture($project, $request) === false) {
+        if ($this->updateCoverPicture($blog, $request) === false) {
             return response([
                 'message' => "We could not add the cover picture... Please try again..."
             ], 500);
         }
 
         return response([
-            'message' => "The project was successfully updated!",
-            'redirect' => route('admin.home.index')
+            'message' => "The blog was successfully updated!",
+            'redirect' => route('admin.blog.index')
         ], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Project $project
+     * @param  Blog $blog
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      * @throws \Exception
      */
-    public function destroy(Project $project)
+    public function destroy(Blog $blog)
     {
-        $this->authorize('delete', $project);
-        if ($project->delete()) {
+        $this->authorize('delete', $blog);
+        if ($blog->delete()) {
             return response([
-                'message' => "The project have been successfully deleted!",
-                'redirect' => route('admin.home.index')
+                'message' => "The blog have been successfully deleted!",
+                'redirect' => route('admin.blog.index')
             ], 200);
         }
 
         return response([
-            'message' => "The project could not be deleted... Please try again..."
+            'message' => "The blog could not be deleted... Please try again..."
         ], 500);
     }
 
     /**
-     * Update the cover picture for project
+     * Update the cover picture for blog
      *
-     * @param  Project $project
+     * @param  Blog $blog
      * @param  Request $request
      * @return bool|null
      */
-    private function updateCoverPicture(Project $project, Request $request)
+    private function updateCoverPicture(Blog $blog, Request $request)
     {
         if ($request->file('cover')) {
             $image = $request->file('cover');
 
             $name = $image->getClientOriginalName();
-            $image->move(storage_path("app/public/images/project/{$project->id}"), $name);
+            $image->move(storage_path("app/public/images/blog/{$blog->id}"), $name);
 
-            if (!$project->update([
-                'cover' => "/storage/images/project/{$project->id}/{$name}"
+            if (!$blog->update([
+                'cover' => "/storage/images/blog/{$blog->id}/{$name}"
             ])) {
                 return false;
             }

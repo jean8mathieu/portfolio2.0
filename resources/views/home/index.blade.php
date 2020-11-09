@@ -17,7 +17,11 @@
 
                     @foreach($projectsSlider as $project)
                         <div class="carousel-item {{ $loop->index === 0 ? "active" : "" }}">
-                            <img src="{{ $project->cover }}" class="w-100 cover-slider" alt="Project's image">
+                            <div class="embed-responsive">
+                                <div class="embed-responsive-16by9">
+                                    <img src="{{ $project->cover }}" class="w-100" alt="Project's image">
+                                </div>
+                            </div>
                             <div class="carousel-caption d-none d-md-block bgo-dark">
                                 <h5>{{ $project->title }}</h5>
                                 <p>{{ $project->summary }}</p>
@@ -42,7 +46,7 @@
 
         @forelse($projects ?? [] as $project)
             <div class="row mt-3">
-                @include('home.project-box', ['project' => $project])
+                @include('block.content-box', ['model' => $project])
             </div>
             <hr>
         @empty

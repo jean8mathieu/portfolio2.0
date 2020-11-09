@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Project extends Model
+class Blog extends Model
 {
     use SoftDeletes;
 
@@ -14,14 +14,14 @@ class Project extends Model
      *
      * @var string
      */
-    protected $table = 'projects';
+    protected $table = 'blogs';
 
     /**
      * Relationship
      *
      * @var array
      */
-    protected $with = ['user'];
+    protected $with = ['tags', 'user'];
 
     /**
      * Fillable values
@@ -31,12 +31,11 @@ class Project extends Model
     protected $fillable = [
         'user_id',
         'title',
+        'slug',
         'summary',
         'description',
         'markdown_description',
-        'cover',
-        'url',
-        'repo_url'
+        'cover'
     ];
 
     /**
@@ -67,5 +66,34 @@ class Project extends Model
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    /**
+     * Get the first paragraph
+     *
+     * @return bool|string
+     */
+    public function getFirstParagraph()
+    {
+        return  substr(
+            $this->markdown_description,
+            strpos(
+                $this->markdown_description,
+                "<p"
+            ),
+            strpos(
+                $this->markdown_description,
+                "</p>"
+            )+4
+        );
+
+    }
+
+    /**
+     * Get the slug of the blog
+     */
+    public function getSlug()
+    {
+        return $this->slug ?? $this->id;
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tag extends Model
@@ -72,11 +73,21 @@ class Tag extends Model
     /**
      * Get the projects
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return BelongsToMany
      */
     public function projects()
     {
-        return $this->belongsToMany(Project::class);
+        return $this->morphedByMany(Project::class, 'taggable');
+    }
+
+    /**
+     * Get the blogs
+     *
+     * @return BelongsToMany
+     */
+    public function blogs()
+    {
+        return $this->morphedByMany(Blog::class, 'taggable');
     }
 
     /**
@@ -87,6 +98,16 @@ class Tag extends Model
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    /**
+     * Get the taggable model
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function taggable()
+    {
+        return $this->morphTo();
     }
 
     /**

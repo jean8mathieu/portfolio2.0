@@ -15,10 +15,10 @@
         ])
 
         <form action="{{ route('api.admin.tag.update', [$tag]) }}" id="form" method="PUT">
-            <label for="name">Name</label>
+            <label for="name" class="mt-3">Name</label>
             <input id="name" type="text" name="name" class="form-control text-white bg-black" value="{{ $tag->name }}">
 
-            <label for="type">Type</label>
+            <label for="type" class="mt-3">Type</label>
             <select id="type" name="type" class="form-control text-white bg-black">
                 <option></option>
                 @foreach(\App\Models\Tag::$types as $key => $value)

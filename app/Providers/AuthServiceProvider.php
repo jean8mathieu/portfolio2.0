@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Blog;
 use App\Models\Experience;
 use App\Models\Project;
 use App\Models\SiteSetting;
 use App\Models\Tag;
+use App\Policies\BlogPolicy;
 use App\Policies\ExperiencePolicy;
 use App\Policies\ProjectPolicy;
 use App\Policies\SiteSettingPolicy;
@@ -24,7 +26,8 @@ class AuthServiceProvider extends ServiceProvider
         Project::class => ProjectPolicy::class,
         Tag::class => TagPolicy::class,
         Experience::class => ExperiencePolicy::class,
-        SiteSetting::class => SiteSettingPolicy::class
+        SiteSetting::class => SiteSettingPolicy::class,
+        Blog::class => BlogPolicy::class
     ];
 
     /**
