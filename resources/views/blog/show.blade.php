@@ -14,7 +14,7 @@
 
     @if(!empty(env('TWITTER_NAME')))
         <meta name="twitter:card" content="summary"/>
-        <meta name="twitter:site" content="@truckersmp"/>
+        <meta name="twitter:site" content="{{ "@" . env('TWITTER_NAME') }}"/>
         <meta name="twitter:title" content="{{ $blog->title }}"/>
         <meta name="twitter:description" content="{{ $blog->summary }}"/>
         @if($blog->cover)
