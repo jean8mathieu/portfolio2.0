@@ -16,20 +16,11 @@
         @endif
     </h3>
 
-    @if($model->tags && sizeof($model->tags) > 0)
-        @foreach($model->tags as $tag)
-            {!! $tag->getButton() !!}
-        @endforeach
+    @if(\App\Models\Blog::class === get_class($model))
+        @include('block.blog', ['model' => $model])
+    @else
+        @include('block.content', ['model' => $model])
     @endif
-
-    <div class="mw-100">
-        @if(\App\Models\Blog::class === get_class($model))
-            {!! $model->getFirstParagraph() !!}
-        @else
-            {!! $model->markdown_description !!}
-        @endif
-    </div>
-
 
     <div class="mt-3 row">
         @if(isset($model->url))
