@@ -18,6 +18,7 @@ class CreateBlogsTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->string('summary');
+            $table->string('slug');
             $table->text('description');
             $table->text('markdown_description');
             $table->string('cover')->nullable();

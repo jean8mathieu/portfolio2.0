@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Blog\StoreRequest;
 use App\Http\Requests\Blog\UpdateRequest;
 use App\Models\Blog;
+use App\Models\Project;
 use App\Models\Tag;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -23,9 +25,17 @@ class BlogController extends Controller
     public function store(StoreRequest $request)
     {
         $this->authorize('create', Blog::class);
+
+        if (empty($request->slug)) {
+            $slug = Str::kebab($request->title);
+        } else {
+            $slug = Str::kebab($request->slug);
+        }
+
         $blog = Blog::create([
             'title' => $request->title,
             'summary' => $request->summary,
+            'slug' => $slug,
             'description' => $request->description,
             'markdown_description' => Markdown::convertToHtml($request->description),
             'user_id' => Auth::id(),
@@ -49,7 +59,7 @@ class BlogController extends Controller
 
         return response([
             'message' => "The blog was successfully created!",
-            'redirect' => route('admin.home.index')
+            'redirect' => route('admin.blog.index')
         ], 200);
     }
 
@@ -64,9 +74,19 @@ class BlogController extends Controller
     public function update(UpdateRequest $request, Blog $blog)
     {
         $this->authorize('update', $blog);
+
+        if ($request->slug !== $blog->slug) {
+           $slug = Str::kebab($request->slug);
+        } elseif (empty($request->slug)) {
+            $slug = Str::kebab($request->title);
+        } else {
+            $slug = $blog->slug;
+        }
+
         $success = $blog->update([
             'title' => $request->title,
             'summary' => $request->summary,
+            'slug' => $slug,
             'description' => $request->description,
             'markdown_description' => Markdown::convertToHtml($request->description),
             'user_id' => Auth::id(),
@@ -90,7 +110,7 @@ class BlogController extends Controller
 
         return response([
             'message' => "The blog was successfully updated!",
-            'redirect' => route('admin.home.index')
+            'redirect' => route('admin.blog.index')
         ], 200);
     }
 

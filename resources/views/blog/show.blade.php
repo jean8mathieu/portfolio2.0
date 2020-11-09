@@ -11,11 +11,13 @@
             @endauth
         </h3>
 
-        @if(!empty($blog->cover))
-            <img src="{{ $blog->cover }}" alt="" class="w-100 cover">
-        @else
-            <img src="/storage/images/assets/notfound.jpg" alt="" class="w-100 cover">
-        @endif
+        <div class="embed-responsive">
+            <div class="embed-responsive-16by9">
+                @if(!empty($blog->cover))
+                    <img src="{{ $blog->cover }}" alt="{{ $blog->title }}" class="w-100">
+                @endif
+            </div>
+        </div>
 
         <div class="mt-3 mw-100">
             {!! $blog->markdown_description !!}

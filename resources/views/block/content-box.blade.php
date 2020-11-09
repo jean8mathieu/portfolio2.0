@@ -1,15 +1,17 @@
 <div class="col-md-8">
-    @if(!empty($model->cover))
-        <img src="{{ $model->cover }}" alt="" class="w-100 cover">
-    @else
-        <img src="/storage/images/assets/notfound.jpg" alt="" class="w-100 cover">
-    @endif
+    <div class="embed-responsive">
+        <div class="embed-responsive-16by9">
+            @if(!empty($model->cover))
+                <img src="{{ $model->cover }}" alt="" class="w-100">
+            @endif
+        </div>
+    </div>
 
 </div>
 <div class="col-md-4">
     <h3>
         @if(\App\Models\Blog::class === get_class($model))
-            <a href="{{ route('blog.show', [$model]) }}" class="text-decoration-none">
+            <a href="{{ route('blog.show', [$model->getSlug()]) }}" class="text-decoration-none">
                 {{ $model->title }}
             </a>
         @else

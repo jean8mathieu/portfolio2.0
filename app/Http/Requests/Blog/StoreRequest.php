@@ -28,6 +28,7 @@ class StoreRequest extends FormRequest
         $rules = [
             'title' => "required|min:4|max:255",
             'summary' => "required|min:5|max:255",
+            'slug' => "nullable|min:3|max:255",
             'description' => "required|min:50|max:1000",
             'cover' => "nullable|image",
         ];

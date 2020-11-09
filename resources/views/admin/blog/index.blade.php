@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Admin - Home')
+@section('title', 'Admin - Blog')
 
 @section('content')
     <div class="container">
@@ -34,7 +34,11 @@
             @forelse($blogs as $blog)
                 <tr>
                     <th scope="row">{{ $blog->id }}</th>
-                    <td>{{ $blog->title }}</td>
+                    <td>
+                        <a href="{{ route('blog.show', [$blog->getSlug()]) }}" target="_blank">
+                            {{ $blog->title }}
+                        </a>
+                    </td>
                     <td>{{ $blog->user->username }}</td>
                     <td>{{ $blog->created_at }}</td>
                     <td>{{ $blog->updated_at }}</td>

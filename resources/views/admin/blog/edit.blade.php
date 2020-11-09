@@ -15,19 +15,27 @@
         ])
 
         <form action="{{ route('api.admin.blog.update', [$blog]) }}" id="form" method="PUT" enctype="multipart/form-data">
-            <label for="title">Title</label>
+            <label for="title" class="mt-3">Title</label>
             <input id="title" type="text" name="title" class="form-control text-white bg-black" value="{{ $blog->title }}">
 
-            <label for="summary">Summary</label>
+            <label for="summary" class="mt-3">Summary</label>
             <textarea id="summary" class="form-control text-white bg-black" name="summary">{{ $blog->summary }}</textarea>
 
-            <label for="description">Description</label>
+            <label for="description" class="mt-3">Description</label>
             <textarea id="description" class="form-control text-white bg-black markdown-editor" name="description" rows="10">{{ $blog->description }}</textarea>
 
-            <label for="tag">Tag</label>
+            <label for="slug">Slug</label>
+            <input id="slug" type="text" name="slug" class="form-control text-white bg-black" value="{{ $blog->slug }}">
+
+            <label for="tag" class="mt-3">Tag</label>
             <select id="tag" name="tag[]" class="tag custom-select" multiple></select>
 
-            <label for="cover">Cover Picture</label>
+            <label for="cover" class="mt-3">
+                Cover Picture
+                <small>
+                    (Recommend a resolution of 16:9)
+                </small>
+            </label>
             <input id="cover" type="file" name="cover" class="form-control">
 
             <button type="button" class="btn btn-success btn-submit click mt-3">

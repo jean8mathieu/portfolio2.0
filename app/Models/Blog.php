@@ -31,6 +31,7 @@ class Blog extends Model
     protected $fillable = [
         'user_id',
         'title',
+        'slug',
         'summary',
         'description',
         'markdown_description',
@@ -86,5 +87,13 @@ class Blog extends Model
             )+4
         );
 
+    }
+
+    /**
+     * Get the slug of the blog
+     */
+    public function getSlug()
+    {
+        return $this->slug ?? $this->id;
     }
 }

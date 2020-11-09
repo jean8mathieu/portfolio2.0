@@ -1,6 +1,7 @@
 import EasyMDE from 'easymde'
 
 export default function (element) {
+    element.removeAttribute('required')
     return new EasyMDE({
         element,
         toolbar: [
@@ -21,6 +22,8 @@ export default function (element) {
         promptURLs: true,
         placeholder: 'Type here...',
         spellChecker: true,
-        nativeSpellcheck: true
+        nativeSpellcheck: true,
+        forceSync: true,
+        inputStyle: 'contenteditable'
     })
 }
