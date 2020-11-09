@@ -17,7 +17,9 @@
 
                     @foreach($projectsSlider as $project)
                         <div class="carousel-item {{ $loop->index === 0 ? "active" : "" }}">
-                            <img src="{{ $project->cover }}" class="embed-responsive embed-responsive-16by9 img-fluid w-100" alt="Project's image">
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <img src="{{ $model->cover }}" alt="{{ $model->title }}" class="embed-responsive-item img-fluid rounded">
+                            </div>
 
                             <div class="carousel-caption d-none d-md-block bgo-dark">
                                 <h5>{{ $project->title }}</h5>
