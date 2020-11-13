@@ -39,6 +39,19 @@
             </div>
         @endif
 
+        <div class="border-bottom border-top py-2">
+            <div class="h5">
+                By {{ $blog->user->username }}
+            </div>
+            <div>
+                <span class="h5">{{ $blog->created_at->format('M d, Y') }}</span>
+                <span class="h4">|</span>
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ URL::current() }};src=sdkpreparse" class="h4"><i class="fab fa-facebook-square color-facebook mx-2"></i></a>
+                <span class="h4">|</span>
+                <a target="_blank" href="https://twitter.com/share?url={{ URL::current() }}&text={{ $blog->title }}" class="h4"><i class="fab fa-twitter-square color-twitter mx-2"></i></a>
+            </div>
+        </div>
+
         <div class="mt-3 mw-100">
             {!! $blog->markdown_description !!}
         </div>
@@ -49,4 +62,7 @@
             @endforeach
         @endif
     </div>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=1773629252719660&autoLogAppEvents=1" nonce="73voWiME"></script>
 @endsection

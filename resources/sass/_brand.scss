@@ -1,0 +1,78 @@
+$color-twitch: #6441a5;
+$color-discord: #7289da;
+$color-twitter: #1da1f2;
+$color-facebook: #3b5998;
+$color-steam: #00adee;
+$color-wotr: #fe8200;
+$color-youtube: #ff0000;
+$color-instagram: #c13584;
+$color-patreon: #f86753;
+
+// Brand colors
+$brand-colors: () !default;
+$brand-colors: map_merge(
+                (
+                        "twitch": $color-twitch,
+                        "discord": $color-discord,
+                        "twitter": $color-twitter,
+                        "facebook": $color-facebook,
+                        "steam": $color-steam,
+                        "wotr": $color-wotr,
+                        "youtube": $color-youtube,
+                        "instagram": $color-instagram,
+                        "patreon": $color-patreon
+                ),
+                $brand-colors
+);
+
+@each $brand, $color in $brand-colors {
+  span.label-#{$brand},
+  span.badge-#{$brand},
+  .list-group-item.active > .badge {
+    background: $color;
+  }
+
+  i.icon-color-#{$brand} {
+    background: none;
+    color: $color;
+    border: solid 1px $color;
+  }
+
+  i.icon-bg-#{$brand} {
+    color: #fff;
+    border-color: transparent;
+    background: $color;
+  }
+
+  .text-highlights-#{$brand} {
+    background: $color;
+  }
+
+  .text-border-#{$brand} {
+    border-color: $color;
+  }
+
+  .panel-#{$brand} {
+    border-color: $color;
+  }
+
+  .panel-#{$brand} > .panel-heading {
+    background: $color;
+  }
+
+  .progress-bar-#{$brand} {
+    background: $color;
+  }
+
+  .color-#{$brand} {
+    color: $color;
+  }
+
+  .bg-color-#{$brand} {
+    color: #fff;
+    background-color: $color !important;
+  }
+  .rgba-#{$brand} {
+    background-color: opacify($color, 0.2);
+  }
+}
