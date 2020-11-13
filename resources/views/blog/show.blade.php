@@ -34,7 +34,7 @@
         </h3>
 
         @if($blog->cover)
-            <div class="embed-responsive embed-responsive-16by9">
+            <div class="embed-responsive embed-responsive-16by9 mb-3">
                 <img src="{{ $blog->cover }}" alt="{{ $blog->title }}" class="embed-responsive-item img-fluid rounded">
             </div>
         @endif
