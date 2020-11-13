@@ -33,13 +33,8 @@
             @endauth
         </h3>
 
-        @if($blog->cover)
-            <div class="embed-responsive embed-responsive-16by9 mb-3">
-                <img src="{{ $blog->cover }}" alt="{{ $blog->title }}" class="embed-responsive-item img-fluid rounded">
-            </div>
-        @endif
 
-        <div class="border-bottom border-top py-2">
+        <div class="border-bottom border-top py-2 my-3">
             <div class="h5">
                 By {{ $blog->user->username }}
             </div>
@@ -51,6 +46,12 @@
                 <a target="_blank" href="https://twitter.com/share?url={{ URL::current() }}&text={{ $blog->title }}" class="h4"><i class="fab fa-twitter-square color-twitter mx-2"></i></a>
             </div>
         </div>
+
+        @if($blog->cover)
+            <div class="embed-responsive embed-responsive-16by9">
+                <img src="{{ $blog->cover }}" alt="{{ $blog->title }}" class="embed-responsive-item img-fluid rounded">
+            </div>
+        @endif
 
         <div class="mt-3 mw-100">
             {!! $blog->markdown_description !!}
